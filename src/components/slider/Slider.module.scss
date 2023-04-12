@@ -1,0 +1,57 @@
+.container {
+ 	height: fit-content;
+	position: relative;
+
+	& .slide_list {
+		display: flex;
+		transition: transform 0.5s ease-in-out;
+		width: 102%;
+
+		& .slide {
+      position: relative;
+			flex: 1 0 100%;
+      box-sizing: border-box;
+      padding: 0px 10px 0px 10px;
+      left: -10px;
+			
+			& .slide_image {
+				display: flex;
+        border-radius: 30px;
+				width: 100%;
+			}
+		}
+	}
+
+	& .arrows {
+		display: flex;
+		font-size: 30px;
+		align-items: center;
+		justify-content: space-between;
+		position: absolute;
+		top: 50%;
+		width: 100%;
+		z-index: 1;
+
+		& .arrow {
+			height: 30px;
+			width: 30px;
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			&.left {
+				background: url('../../static/svgs/arrow.svg') no-repeat;
+				background-size: contain;
+				transform: rotate(180deg);
+        margin-left: -65px;
+			}
+
+			&.right {
+				background: url('../../static/svgs/arrow.svg') no-repeat;
+				background-size: contain;
+				margin-right: -65px;
+			}
+		}
+	}
+}
