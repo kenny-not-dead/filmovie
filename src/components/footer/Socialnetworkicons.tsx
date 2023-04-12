@@ -5,7 +5,7 @@ import twit from '../../static/svgs/twitter.svg';
 import viber from '../../static/svgs/viber.svg';
 import linkedin from '../../static/svgs/linkedin.svg';
 import telegram from '../../static/svgs/telegram.svg';
-import classes from './Socialnetworkicons.module.css'
+import classes from './Socialnetworkicons.module.scss'
 
 
 export default function Socialnetworkicons() {

@@ -1,0 +1,12 @@
+@import './../../../styles/variables.scss';
+
+.wrapper {
+    a {
+        display: block;
+        color: $color-text-second;
+        &:hover{
+        color: $color-text;
+        }
+    }
+    
+}

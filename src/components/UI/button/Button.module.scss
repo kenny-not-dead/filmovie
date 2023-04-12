@@ -1,0 +1,18 @@
+@import './../../../styles/variables.scss';
+
+.btn {
+  background: $color-btn;
+  display: block;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  p{
+    padding: 10px;
+    color: white;
+  }
+}
+
+.icon{
+  width: 20px;
+  padding: 3px;
+}
