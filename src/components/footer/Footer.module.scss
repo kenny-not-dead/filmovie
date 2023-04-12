@@ -1,0 +1,10 @@
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	align-self: flex-end;
+
+	height: 200px;
+
+	border-top: .5px solid rgb(112, 112, 112);
+}

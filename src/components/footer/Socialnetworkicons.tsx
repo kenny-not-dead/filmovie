@@ -1,11 +1,10 @@
-import React from 'react'
 import SocialNetwork from '../UI/socialnetwork.tsx/SocialNetwork'
-import vk from './../img/icons/SocialNetwork/vk.svg'
-import ok from './../img/icons/SocialNetwork/odnoklassniki.svg'
-import twit from './../img/icons/SocialNetwork/twitter.svg'
-import viber from './../img/icons/SocialNetwork/viber.svg'
-import linkedin from './../img/icons/SocialNetwork/linkedin.svg'
-import telegram from './../img/icons/SocialNetwork/telegram.svg'
+import vk from '../../static/svgs/vk.svg';
+import ok from '../../static/svgs/odnoklassniki.svg';
+import twit from '../../static/svgs/twitter.svg';
+import viber from '../../static/svgs/viber.svg';
+import linkedin from '../../static/svgs/linkedin.svg';
+import telegram from '../../static/svgs/telegram.svg';
 import classes from './Socialnetworkicons.module.css'
 
 
