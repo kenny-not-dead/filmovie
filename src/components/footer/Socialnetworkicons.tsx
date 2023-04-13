@@ -1,4 +1,4 @@
-import SocialNetwork from '../UI/socialnetwork.tsx/SocialNetwork'
+import SocialNetwork from '../UI/socialnetwork/SocialNetwork'
 import vk from '../../static/svgs/vk.svg';
 import ok from '../../static/svgs/odnoklassniki.svg';
 import twit from '../../static/svgs/twitter.svg';
