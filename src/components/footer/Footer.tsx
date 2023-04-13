@@ -1,12 +1,15 @@
+
 import classes from './Footer.module.scss';
 import FooterNav from './FooterNav';
-import Socialnetworkicons from './Socialnetworkicons';
+import Info from './Info';
+import SocialNetworkWrapper from './SocialNetworkWrapper';
 
 export default function Footer() {
   return (
     <footer className={classes.container}>
       <FooterNav/>
-      <Socialnetworkicons/>
+      <SocialNetworkWrapper/>
+      <Info/>
     </footer>
   )
 }

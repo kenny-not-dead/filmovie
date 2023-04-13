@@ -1,12 +1,13 @@
 import { FormattedMessage } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 import classes from './Header.module.scss';
+import logo from './../../static/svgs/logo.svg'
 
 export default function Header() {
 	return (
 		<header className={classes.container}>
 			<div>
-				<span>Film Movie</span>
+				<img src={logo} alt="Kinogramm" />
 				<nav>
 					<NavLink to={'/main'}>
 						<FormattedMessage id='main' />

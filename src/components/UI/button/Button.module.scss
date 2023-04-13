@@ -7,12 +7,17 @@
   border-radius: 8px;
   font-weight: 700;
   p{
-    padding: 10px;
+    padding: 10px 40px;
     color: white;
-  }
+    
+  };
+  &:hover {
+    background: $color-btn-hover;
+  };
 }
 
 .icon{
   width: 20px;
   padding: 3px;
 }
+

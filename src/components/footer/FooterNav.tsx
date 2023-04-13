@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom'
 import Button from '../UI/button/Button'
 import phone from './../../static/svgs/phone.svg'
 import mail from './../../static/svgs/mail.svg'
+import logo from './../../static/svgs/logo.svg'
 
 export default function FooterNav() {
     let item = [
@@ -79,6 +80,11 @@ export default function FooterNav() {
                  <FormattedMessage id='answer'/>
             </p>
         </div>
+        <a href="https://www.ivi.ru/subscribe?redirect_url=%2F" className={classes.subscription}>
+            <img src={logo} alt="" />
+            <p><FormattedMessage id='noadvertising'/> </p>
+
+        </a>
     </div>
   )
 }
