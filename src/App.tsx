@@ -1,17 +1,18 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import MainPage from './pages/MainPage/MainPage';
-import FilmPage from './pages/FilmPage/FilmPage';
-import CatalogPage from './pages/CatalogPage/CatalogPage';
-import AdminPage from './pages/AdminPage/AdminPage';
-import ActorPage from './pages/ActorPage/ActorPage';
-import AuthPage from './pages/AuthPage/AuthPage';
+import { MainPage } from './pages/MainPage/MainPage';
+import { FilmPage } from './pages/FilmPage/FilmPage';
+import { CatalogPage } from './pages/CatalogPage/CatalogPage';
+import { AdminPage } from './pages/AdminPage/AdminPage';
+import { ActorPage } from './pages/ActorPage/ActorPage';
+import { AuthPage } from './pages/AuthPage/AuthPage';
 import { IntlProvider } from 'react-intl';
-import { LOCALES } from './i18n/locales'
+import { LOCALES } from './i18n/locales';
 import { messages } from './i18n/messages';
+import { Header } from './components/header/Header';
+import { Footer } from './components/footer/Footer';
 
 function App() {
-
-  const locale = LOCALES.RUSSIAN;
+	const locale = LOCALES.RUSSIAN;
 
 	return (
 		<IntlProvider
@@ -20,6 +21,7 @@ function App() {
 			defaultLocale={LOCALES.RUSSIAN}
 		>
 			<BrowserRouter>
+				<Header />
 				<Routes>
 					<Route path='/main' element={<MainPage />} />
 					<Route path='/catalog/:id' element={<FilmPage />} />
@@ -29,6 +31,7 @@ function App() {
 					<Route path='/actor/:id' element={<ActorPage />} />
 					<Route path='*' element={<Navigate to='main' replace />} />
 				</Routes>
+				<Footer />
 			</BrowserRouter>
 		</IntlProvider>
 	);

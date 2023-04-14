@@ -1,0 +1,14 @@
+.container {
+	display: flex;
+	align-items: flex-end;
+
+	gap: 10px;
+
+	.title {
+		line-height: 23px;
+	}
+
+	.arrow {
+		width: 8px;
+	}
+}

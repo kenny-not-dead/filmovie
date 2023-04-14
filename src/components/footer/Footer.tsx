@@ -1,10 +1,9 @@
-
 import classes from './Footer.module.scss';
 import FooterNav from './FooterNav';
 import Info from './Info';
 import SocialNetworkWrapper from './SocialNetworkWrapper';
 
-export default function Footer() {
+export function Footer() {
   return (
     <footer className={classes.container}>
       <FooterNav/>

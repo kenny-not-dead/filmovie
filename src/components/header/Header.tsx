@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import classes from './Header.module.scss';
 import logo from './../../static/svgs/logo.svg'
 
-export default function Header() {
+export function Header() {
 	return (
 		<header className={classes.container}>
 			<div>

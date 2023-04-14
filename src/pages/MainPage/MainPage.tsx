@@ -1,6 +1,6 @@
-import Footer from '../../components/footer/Footer'
-import Header from '../../components/header/Header'
-import Slider from '../../components/slider/Slider'
+import { Slider } from '../../components/slider/Slider';
+import { Title } from '../../components/title/Title';
+import classes from './MainPage.module.scss';
 
 const mainSlides = [
 	{
@@ -15,7 +15,7 @@ const mainSlides = [
 		description:
 			'Абсолютный триумфатор Оскара-2023, яркий, увлекательный, во всех смыслах фантастический',
 	},
-]; 
+];
 
 const posters = [
 	{
@@ -76,15 +76,42 @@ const posters = [
 	},
 ];
 
-function MainPage() {
+export function MainPage() {
 	return (
 		<>
-			<Header />
-			<Slider slides={mainSlides} posters={false} autoPlay={false} autoPlayTime={5000} />
-			<Slider slides={posters} posters={true} autoPlay={false} autoPlayTime={5000} />
-			<Footer />
+			<Slider
+				slides={mainSlides}
+				posters={false}
+				autoPlay={false}
+				autoPlayTime={5000}
+			/>
+			<div className={classes.slider__block}>
+				<Title arrow={true} title={'Рекомендую посмотреть'} />
+				<Slider
+					slides={posters}
+					posters={true}
+					autoPlay={false}
+					autoPlayTime={5000}
+				/>
+			</div>
+			<div className={classes.slider__block}>
+				<Title arrow={true} title={'Не рекомендую посмотреть'} />
+				<Slider
+					slides={posters}
+					posters={true}
+					autoPlay={false}
+					autoPlayTime={5000}
+				/>
+			</div>
+			<div className={classes.slider__block}>
+				<Title arrow={true} title={'За эти рекомендации нам платят'} />
+				<Slider
+					slides={posters}
+					posters={true}
+					autoPlay={false}
+					autoPlayTime={5000}
+				/>
+			</div>
 		</>
 	);
 }
-
-export default MainPage

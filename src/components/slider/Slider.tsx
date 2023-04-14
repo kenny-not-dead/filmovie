@@ -9,7 +9,7 @@ interface SliderProps {
 	autoPlayTime: number;
 }
 
-const Slider = function ({
+export function Slider({
 	slides,
 	posters,
 	autoPlay,
@@ -70,7 +70,7 @@ const Slider = function ({
 						slides.map((slide, index) => (
 							<div className={classes.slide} key={index}>
 								<div className={classes.info}>
-									<span className={classes.name}>{slide.title}</span>
+									<h1 className={classes.name}>{slide.title}</h1>
 									<span className={classes.description}>
 										{slide.description}
 									</span>
@@ -99,5 +99,3 @@ const Slider = function ({
 		</div>
 	);
 };
-
-export default Slider;

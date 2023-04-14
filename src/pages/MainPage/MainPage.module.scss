@@ -1,4 +1,6 @@
-.posters {
+.slider__block {
 	display: flex;
-	gap: 25px;
+	flex-direction: column;
+
+	gap: 10px;
 }

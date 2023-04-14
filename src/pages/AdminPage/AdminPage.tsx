@@ -1,13 +1,6 @@
-import Footer from '../../components/footer/Footer';
-import Header from '../../components/header/Header';
-
-function AdminPage() {
+export function AdminPage() {
 	return (
 		<>
-			<Header />
-			<Footer />
 		</>
 	);
 }
-
-export default AdminPage
