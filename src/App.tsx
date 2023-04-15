@@ -25,7 +25,9 @@ function App() {
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route path="/main" index element={<MainPage />} />
-            <Route path="/catalog/:id" element={<FilmPage />} />
+            <Route path="/watch/:id" element={<FilmPage />} />
+            <Route path="/catalog/:id/*" element={<CatalogPage />} />
+            <Route path="/catalog/:id/*" element={<CatalogPage />} />
             <Route path="/catalog" element={<CatalogPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/auth" element={<AuthPage />} />

@@ -57,6 +57,7 @@
 		display: flex;
 		transition: transform 0.5s ease-in-out;
 		width: 102%;
+		
 
 		.slide {
 			position: relative;
@@ -89,8 +90,11 @@
 		}
 
 		.posters {
+			
 			display: flex;
 			gap: 25px;
+			//flex-wrap: wrap; // временно, чтобы убрать сдвиг
+		
 		}
 	}
 }

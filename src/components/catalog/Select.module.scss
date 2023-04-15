@@ -4,6 +4,15 @@
     margin: auto 0;
 }
 
+input:focus,
+select:focus, .form-control:focus,
+textarea:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+
 .select{
     border: none;
     font-weight: 400;
@@ -13,15 +22,15 @@
     appearance: none;
     color: #ffffff;
     background: none;
-    width: 170x;
+    width: 200px;
+    
+    
+
 }
 
-select:-moz-focusring {
-    color: transparent;
-    text-shadow: 0 0 0 #000;
-}
 
 .option{
     border: none;
     background: $color-btn;
 }
+

@@ -39,8 +39,8 @@ code {
 }
 
 #root {
-	display: grid;
+	display: flex;
+	width: 1280px;
 	justify-self: center;
 
-	width: 65%;
 }
