@@ -9,8 +9,6 @@ import { AuthPage } from './pages/AuthPage/AuthPage'
 import { IntlProvider } from 'react-intl'
 import { LOCALES } from './i18n/locales'
 import { messages } from './i18n/messages'
-import { Header } from './components/header/Header'
-import { Footer } from './components/footer/Footer'
 
 function App() {
   const locale = LOCALES.RUSSIAN
@@ -24,13 +22,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainLayout />}>
-            <Route path="/main" index element={<MainPage />} />
+            <Route path="/" index element={<MainPage />} />
             <Route path="/catalog/:id" element={<FilmPage />} />
             <Route path="/catalog" element={<CatalogPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/auth" element={<AuthPage />} />
             <Route path="/actor/:id" element={<ActorPage />} />
-            <Route path="*" element={<Navigate to="main" replace />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>
       </BrowserRouter>
