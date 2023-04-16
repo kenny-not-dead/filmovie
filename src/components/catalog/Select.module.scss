@@ -1,0 +1,36 @@
+@import './../../styles/variables.scss';
+
+.wrapper{
+    margin: auto 0;
+}
+
+input:focus,
+select:focus, .form-control:focus,
+textarea:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+
+.select{
+    border: none;
+    font-weight: 400;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: #ffffff;
+    background: none;
+    width: 200px;
+    
+    
+
+}
+
+
+.option{
+    border: none;
+    background: $color-btn;
+}
+

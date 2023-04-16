@@ -1,6 +1,7 @@
 .slider__block {
 	display: flex;
-	flex-direction: column;
+	flex-wrap: wrap;
+	//flex-direction: column;
 
-	gap: 10px;
+	//gap: 10px;
 }
