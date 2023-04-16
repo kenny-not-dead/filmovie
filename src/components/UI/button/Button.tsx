@@ -5,7 +5,7 @@ import classes from './Button.module.scss'
 export interface BtnProps {
   className?: string
   id?: string
-  src?: string
+  src?: any
   alt?: string
   icon?: string
   onClick?: React.MouseEventHandler<HTMLElement>
@@ -13,7 +13,8 @@ export interface BtnProps {
 
 export const Button = ({
   className = classes.btn,
-  id = 'Button',
+  id,
+  src,
   onClick,
   ...props
 }: BtnProps) => {
@@ -21,11 +22,11 @@ export const Button = ({
 		<button onClick={onClick} className={classes[className] || classes.btn}>
 			{id ? (
 				<p>
-					{/*<FormattedMessage id={id} />{' '}*/}
-					{id}
+					<FormattedMessage id={id} />
+					
 				</p>
 			) : (
-				<img className={classes.icon} src={undefined} alt='icon' />
+				<img className={classes.icon} src={src} alt='icon' />
 			)}
 		</button>
 	);

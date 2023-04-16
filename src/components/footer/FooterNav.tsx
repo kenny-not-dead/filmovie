@@ -76,8 +76,8 @@ export default function FooterNav() {
         <div className={classes.btnwrapper}>
           <Button id="message" />
           <div className={classes.minibtnwrapper}>
-            <Button icon={mail} />
-            <Button icon={phone} />
+            <Button src={mail} />
+            <Button src={phone} />
           </div>
         </div>
         <a href="https://ask.ivi.ru/?_gl=1*1bzh0p4*_ga*MTAyOTM3NDg3NS4xNjc5ODEzNDI3*_ga_GETQ4387MJ*MTY4MTMyMDA2NC4zLjEuMTY4MTMyOTYwNC41OC4wLjA.">
