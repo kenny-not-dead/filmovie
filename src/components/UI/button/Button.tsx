@@ -2,8 +2,31 @@ import React from 'react'
 import { FormattedMessage } from 'react-intl'
 import classes from './Button.module.scss'
 
-export default function Button(props:any) {
+export interface BtnProps {
+  className?: string
+  id?: string
+  src?: string
+  alt?: string
+  icon?: string
+  onClick?: React.MouseEventHandler<HTMLElement>
+}
+
+export const Button = ({
+  className = classes.btn,
+  id = 'Button',
+  onClick,
+  ...props
+}: BtnProps) => {
   return (
-    <button className={classes.btn}> {props.id ? <p><FormattedMessage id={props.id} /> </p>: <img className={classes.icon} src={props.icon} alt={props.alt} />} </button>
-  )
+		<button onClick={onClick} className={classes[className] || classes.btn}>
+			{id ? (
+				<p>
+					{/*<FormattedMessage id={id} />{' '}*/}
+					{id}
+				</p>
+			) : (
+				<img className={classes.icon} src={undefined} alt='icon' />
+			)}
+		</button>
+	);
 }

@@ -1,55 +1,33 @@
-import classes from './Signup.module.scss';
+import classes from './Login.module.scss';
 import { SyntheticEvent, useState } from 'react';
 import mail from '../../../static/svgs/mailBlack.svg';
 import pass from '../../../static/svgs/pass.svg';
 import { Button } from '../../UI/button/Button';
 import { Input } from '../../UI/input/Input';
 
-interface SignipProps {
-	onClick(): void
+interface LoginProps {
+	onClick(): void;
 }
 
-export const Signup = ({onClick}: SignipProps) => {
+export const Login = ({onClick}: LoginProps) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [retypePassword, setRetypePassword] = useState('');
 	const [error, setError] = useState('');
 
 	const inputHandler = (
 		e: React.ChangeEvent<HTMLInputElement>,
-		email?: boolean,
-		pass?: boolean
+		email?: boolean
 	) => {
 		email
 			? setEmail(e.target.value)
-			: pass
-			? setPassword(e.target.value)
-			: setRetypePassword(e.target.value);
+			: setPassword(e.target.value)
 		setError('');
-	};
-
-	const validateHandler = (
-		email: string,
-		password: string,
-		retypePassword: string
-	): string => {
-		const reEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
-		const rePass = /^.{8,}$/;
-		if (!email || !password || !retypePassword) return 'Заполните все поля';
-		else if (!reEmail.test(email)) return 'Некорректный email';
-		else if (!rePass.test(password))
-			return 'Пароль должен быть не короче 8 символов';
-		else if (password !== retypePassword) return 'Пароли не совпадают';
-		return '';
 	};
 
 	const authHandler = (event: SyntheticEvent) => {
 		event.preventDefault();
-		const valid = validateHandler(email, password, retypePassword);
-		setError(valid);
-		if (!valid) {
-			// request
-		}
+		// request
+		
 	};
 
 	return (
@@ -58,7 +36,7 @@ export const Signup = ({onClick}: SignipProps) => {
 				{/* <img src={logo} alt='' /> */}
 			</div>
 			<div className={classes.title__container}>
-				<p className={classes.title}>Создайте свой аккаунт</p>
+				<p className={classes.title}>Войдите в свою учетную запись</p>
 				<span className={classes.subtitle}>
 					Миллионы фильмов и сериалов. Все это в одном удобном для Вас месте.
 				</span>
@@ -74,7 +52,7 @@ export const Signup = ({onClick}: SignipProps) => {
 				placeholder={'name@mail.com'}
 				value={email}
 				onChange={e => {
-					inputHandler(e, true, false);
+					inputHandler(e, true);
 				}}
 				icon={mail}
 			/>
@@ -84,30 +62,20 @@ export const Signup = ({onClick}: SignipProps) => {
 				placeholder={'password'}
 				value={password}
 				onChange={e => {
-					inputHandler(e, false, true);
-				}}
-				icon={pass}
-			/>
-			<Input
-				id={'Повторите пароль'}
-				type={'password'}
-				placeholder={'password'}
-				value={retypePassword}
-				onChange={e => {
 					inputHandler(e);
 				}}
 				icon={pass}
 			/>
 			<Button
-				id={'Создать учетную запись'}
+				id={'Войти'}
 				className={'signup__btn'}
 				onClick={e => {
 					authHandler(e);
 				}}
 			/>
 			<div className={classes.login}>
-				<span>Уже есть учетная запись? </span>
-				<span className={classes.accent} onClick={onClick}>Войти</span>
+				<span>Нет учетной записи? </span>
+				<span className={classes.accent} onClick={onClick}>Зарегистрироваться</span>
 			</div>
 		</form>
 	);
