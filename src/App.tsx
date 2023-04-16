@@ -11,7 +11,7 @@ import { LOCALES } from './i18n/locales'
 import { messages } from './i18n/messages'
 
 function App() {
-  const locale = LOCALES.RUSSIAN
+	const locale = LOCALES.RUSSIAN;
 
   return (
     <IntlProvider
@@ -21,14 +21,14 @@ function App() {
     >
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route path="/" index element={<MainPage />} />
-            <Route path="/catalog/:id" element={<FilmPage />} />
-            <Route path="/catalog" element={<CatalogPage />} />
-            <Route path="/admin" element={<AdminPage />} />
-            <Route path="/auth" element={<AuthPage />} />
-            <Route path="/actor/:id" element={<ActorPage />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path='/' element={<MainLayout />}>
+            <Route path='/' index element={<MainPage />} />
+            <Route path='/catalog/:id' element={<FilmPage />} />
+            <Route path='/catalog' element={<CatalogPage />} />
+            <Route path='/admin' element={<AdminPage />} />
+            <Route path='/auth' element={<AuthPage />} />
+            <Route path='/actor/:id' element={<ActorPage />} />
+            <Route path='*' element={<Navigate to='main' replace />} />
           </Route>
         </Routes>
       </BrowserRouter>
@@ -36,4 +36,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

@@ -18,15 +18,15 @@ export const Button = ({
   ...props
 }: BtnProps) => {
   return (
-    <button onClick={onClick} className={className || classes.btn}>
-      {id ? (
-        <p>
-          {/*<FormattedMessage id={id} />{' '}*/}
-          {id}
-        </p>
-      ) : (
-        <img className={classes.icon} src={undefined} alt="icon" />
-      )}
-    </button>
-  )
+		<button onClick={onClick} className={classes[className] || classes.btn}>
+			{id ? (
+				<p>
+					{/*<FormattedMessage id={id} />{' '}*/}
+					{id}
+				</p>
+			) : (
+				<img className={classes.icon} src={undefined} alt='icon' />
+			)}
+		</button>
+	);
 }

@@ -4,10 +4,10 @@ import { Footer } from '../components/footer/Footer'
 
 export const MainLayout = () => {
   return (
-    <div>
+    <>
       <Header />
       <Outlet />
       <Footer />
-    </div>
+    </>
   )
 }

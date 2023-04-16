@@ -1,0 +1,33 @@
+@import '../../../styles/variables.scss';
+
+.input__auth {
+	width: 100%;
+	height: fit-content;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+
+	.input__label {
+		color: $color-gray-text;
+		font-weight: 500;
+	}
+
+	.icon {
+		width: 20px;
+		position: absolute;
+		z-index: 99;
+		left: 12px;
+		bottom: 10px;
+	}
+
+	.input__field {
+		width: auto;
+		height: 40px;
+		padding: 0 0 0 40px;
+		border-radius: 7px;
+		outline: none;
+		border: 1px solid $color-light-gray;
+		transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+	}
+}
