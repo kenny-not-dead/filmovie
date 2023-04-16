@@ -9,7 +9,7 @@ export function Header() {
 			<div>
 				<img src={logo} alt="Kinogramm" />
 				<nav>
-					<NavLink to={'/main'}>
+					<NavLink to={'/'}>
 						<FormattedMessage id='main' />
 					</NavLink>
 					<NavLink to={'/catalog'}>
