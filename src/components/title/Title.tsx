@@ -3,7 +3,7 @@ import arrowSvg from '../../static/svgs/arrow.svg'
 import topSvg from '../../static/svgs/top.svg'
 
 interface TitleProps {
-	top: boolean;
+	top?: boolean;
 	arrow: boolean
 	title: string;
 }

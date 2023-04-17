@@ -31,4 +31,14 @@
 }
 
 
-
+.subfilter{
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  z-index: 9999;
+  margin-top: 10px;
+  background: $color-btn;
+  border-radius: 8px;
+  width: 240px;
+  flex-wrap: wrap;
+}

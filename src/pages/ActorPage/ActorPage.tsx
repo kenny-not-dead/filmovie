@@ -1,47 +1,47 @@
-import { useState } from 'react';
-import classes from './ActorPage.module.scss'
-import Point from '../../components/UI/elem/Point';
-import { divide } from 'lodash';
-import { Button } from '../../components/UI/button/Button';
-import { Title } from '../../components/title/Title';
-
+import { useState } from "react";
+import classes from "./ActorPage.module.scss";
+import Point from "../../components/UI/elem/Point";
+import { Button } from "../../components/UI/button/Button";
+import { Title } from "../../components/title/Title";
+import { TextShow } from "../../components/UI/text/Textshow";
 
 let actors = [
-	{name: 'Сергей Бурунов',
-	 english: "Sergey Burunov",
-	 text: `Сергей Бурунов – российский актер театра и кино, актер озвучивания и пародист. 
+  {
+    name: "Сергей Бурунов",
+    english: "Sergey Burunov",
+    text: `Сергей Бурунов – российский актер театра и кино, актер озвучивания и пародист. 
 	 Получил известность по телешоу «Большая разница», после чего начал активно сниматься на телевидении и на большом экране. 
 	 Бурунов снялся в таких сериалах, как «Краткий курс счастливой жизни», «Кухня» и «Полицейский с Рублевки», 
 	 дилогии «Последний богатырь» и картине «Глубже!» (2020). Востребованный актер дубляжа - его голосом 
 	 на русском языке «говорят» такие актеры, как Леонардо ДиКаприо, Джонни Депп, Джонатан Риз Майерс, 
 	 Мэтт Дэймон и другие голливудские звезды.`,
-	 film: [ 
-		{
-			title: 'Губка боб',
-			url: 'https://thumbs.dfs.ivi.ru/storage2/contents/1/1/24e317e380f8a6bf033e25c3b47cc9.jpg/234x360/?q=85',
-			score: '7,9',
-			info: '1999-2021, США, Фентези',
-			seasons: '13 сезонов',
-			years: 2020
-		},
-		{
-			title: 'Титаник',
-			url: 'https://thumbs.dfs.ivi.ru/storage23/contents/8/5/d8d2fea60b6a57adb2d25a76499f58.jpg/234x360/?q=85',
-			score: '8,6',
-			info: '2012, Россия, Документальные',
-			seasons: '1 сезон',
-			years: 2022
-		},
-		{
-			title: 'Друзья',
-			url: 'https://thumbs.dfs.ivi.ru/storage8/contents/e/6/071e0668ff2d48216b7967891ca39f.jpg/234x360/?q=85',
-			score: '9,1',
-			info: '1994-2004, США, Комедийные',
-			seasons: '10 сезонов',
-			years: 2021
-		},
-	 ],
-	 bio: `Сергей Александрович Бурунов родился в семье электротехника и медсестры 6 марта 1977 года в Москве. У Сергея есть старший брат, который стал переводчиком. В детстве Сергей и не мечтал становиться актером – он хотел летать и грезил о профессии военного летчика. Именно поэтому Сергей поступил в Качинское высшее авиационное училище летчиков им. А. Ф. Мясникова, где отучился три года. На службе Сергей впервые попробовал себя в комедийном жанре – в училище была местная команда КВН, и молодой студент с удовольствием принимал участие в пародийных постановках. В конце концов, Сергей понял, что далек от армии и бросил вуз. Оставшись на распутье, 20-летний Бурунов долго маялся, не зная, чем бы он хотел заниматься. Ответы Сергей нашел… в церкви, где пообщался со священником и получил от него номер телефона своего будущего педагога Михаила Петровича Симакова.
+    film: [
+      {
+        title: "Губка боб",
+        url: "https://thumbs.dfs.ivi.ru/storage2/contents/1/1/24e317e380f8a6bf033e25c3b47cc9.jpg/234x360/?q=85",
+        score: "7,9",
+        info: "1999-2021, США, Фентези",
+        seasons: "13 сезонов",
+        years: 2020,
+      },
+      {
+        title: "Титаник",
+        url: "https://thumbs.dfs.ivi.ru/storage23/contents/8/5/d8d2fea60b6a57adb2d25a76499f58.jpg/234x360/?q=85",
+        score: "8,6",
+        info: "2012, Россия, Документальные",
+        seasons: "1 сезон",
+        years: 2022,
+      },
+      {
+        title: "Друзья",
+        url: "https://thumbs.dfs.ivi.ru/storage8/contents/e/6/071e0668ff2d48216b7967891ca39f.jpg/234x360/?q=85",
+        score: "9,1",
+        info: "1994-2004, США, Комедийные",
+        seasons: "10 сезонов",
+        years: 2021,
+      },
+    ],
+    bio: `Сергей Александрович Бурунов родился в семье электротехника и медсестры 6 марта 1977 года в Москве. У Сергея есть старший брат, который стал переводчиком. В детстве Сергей и не мечтал становиться актером – он хотел летать и грезил о профессии военного летчика. Именно поэтому Сергей поступил в Качинское высшее авиационное училище летчиков им. А. Ф. Мясникова, где отучился три года. На службе Сергей впервые попробовал себя в комедийном жанре – в училище была местная команда КВН, и молодой студент с удовольствием принимал участие в пародийных постановках. В конце концов, Сергей понял, что далек от армии и бросил вуз. Оставшись на распутье, 20-летний Бурунов долго маялся, не зная, чем бы он хотел заниматься. Ответы Сергей нашел… в церкви, где пообщался со священником и получил от него номер телефона своего будущего педагога Михаила Петровича Симакова.
 
 	 Поступить в знаменитое Щукинское училище Бурунову удалось только со второй попытки. Провалившись в первый год поступления, Сергей поступил в Эстрадно-цирковое училище имени Румянцева. Однако на будущий год 21-летнему Бурунову все же удалось стать студентом Щуки. После окончания театрального вуза 25-летний Бурунов четыре года играл на подмостках Театра Сатиры, а затем еще четыре года был голосом канала МГТРК «Мир», диктором анонсов радио «Россия». Прежде чем страна узнала актера Сергея Бурунова в лицо, сначала она полюбила его знаменитый голос. Бурунов много работает в дубляже популярных иностранных фильмов, мультиков и озвучивает компьютерные игры. Именно голосом Бурунова «говорят» звезды Голливуда – например, Леонардо ДиКаприо в фильмах «Кровавый алмаз», «Дорога перемен», «Начало», «Дж.Эдгар», или Джонни Депп в лентах «Мрачные тени», «Джонни Д.».
 	 
@@ -53,76 +53,53 @@ let actors = [
 	 
 	 Бурунов продолжает активно сниматься на телевидение. В 2018 году к уже имеющимся проектам «Полицейский с Рублевки» и «Ивановы-Ивановы» добавился сериал «Содержанки», а годом позже – «Мылодрама». В 2020-м на экраны выходит нашумевшая мелодрама «Глубже!», становящаяся неожиданным триумфом проката. В этом фильме Бурунов по причине сильной загруженности исполняет небольшую роль телеведущего. Столь же фрагментарным получается участие Сергея в продолжении «Последнего богатыря» - ленте «Последний богатырь. Корень зла» (2021). Бурунов вернулся к роли Водяного, но появился буквально в паре сцен, став очень яркой, но эпизодической звездой успешной картины.
 	 
-	 Помимо успешной актерской карьеры, Бурунов много работает над записью музыкальных клипов. О личной жизни Сергей предпочитает не распространяться, но в настоящее время всенародно любимый комик не женат.`
-	}
-
-]
-
-
-
+	 Помимо успешной актерской карьеры, Бурунов много работает над записью музыкальных клипов. О личной жизни Сергей предпочитает не распространяться, но в настоящее время всенародно любимый комик не женат.`,
+  },
+];
 
 export function ActorPage() {
+  return (
+    <div className={classes.wrapper}>
+      <div className={classes.infowrapper}>
+        <img
+          src="https://world-wells.ru/wp-content/uploads/0/f/5/0f564624972dad2115ea70d4b0bff5b0.jpeg"
+          alt="Photo"
+        />
+        <div>
+          <h2>{actors[0].name}</h2>
+          <p>{actors[0].english}</p>
+        </div>
+      </div>
+      <TextShow number={150} text={actors[0].text} />
+      <div className={classes.nav}>
+        <a href="#film">{actors[0].film.length} фильма</a>
+        <Point />
+        <a href="#bio">Биография</a>
+      </div>
+      <div id="film">
+        <div className={classes.listlabel}>
+          <Title arrow={false} title={"Полная фильмография"} />
+          <p>{actors[0].film.length} фильма</p>
+        </div>
 
-    const [number, setNumber] = useState(150)
-	const [numberBio, setnumberBio] = useState(300)
-
-	const setAll = (number: Number) => {
-		if  (number == 150) {
-			setNumber(1000000000000)
-		} else if (number == 1000000000000) {
-			setNumber(150)
-		} else if(number == 300) {
-		setnumberBio(1000000000000000)
-        } else if (number == 1000000000000000) {
-            setnumberBio(300)
-        }
-    } 
-
-	return (
-		<div className={classes.wrapper}>
-			<div className={classes.infowrapper}>
-				<img src="https://world-wells.ru/wp-content/uploads/0/f/5/0f564624972dad2115ea70d4b0bff5b0.jpeg" alt="Photo"  />
-				<div>
-					<h2>{actors[0].name}</h2>
-					<p>{actors[0].english}</p>
-				</div>
-			</div>
-			<p>{actors[0].text.slice(0, number)}{number == 150 ? '...' : ''} </p>
-			<p className ={classes.showall} onClick={() => setAll(number)}>{number == 150 ? 'Развернуть' : 'Свернуть'}</p>
-			<div className={classes.nav}>
-				<a href="#film">{actors[0].film.length} фильма</a>
-				<Point/>
-				<a href="#bio">Биография</a>
-			</div>
-			<div id='film'>
-				<div className={classes.listlabel} >
-					<Title arrow={false} title={'Полная фильмография'} />
-					<p>{actors[0].film.length} фильма</p>
-				</div>
-
-				{actors[0].film.map(item => 
-					<div className={classes.listitem}>
-						<img src={item.url} alt="Poster" />
-						<div className={classes.infolistwrapper}>
-							<h3>{item.title}</h3>
-							<p>{item.years}</p>
-							<p>Рейтинг Кинопоиск: {item.score}</p>
-						</div>
-						<div className={classes.buttonwrapper}>
-							<Button id ='Смотреть'/>
-						</div>
-						
-					</div>
-				)}
-				<div className={classes.bioWrapper} id='bio'>
-					<Title arrow={false} title={'Биография'} />
-					<p>
-						<p>{actors[0].bio.slice(0, numberBio)}{numberBio == 300 ? '...' : ''} </p>
-						<p className ={classes.showall} onClick={() => setAll(numberBio)}>{numberBio == 300 ? 'Развернуть' : 'Свернуть'}</p>
-					</p>
-				</div>
-		
-			</div>
-		</div>
-	);
+        {actors[0].film.map((item) => (
+          <div className={classes.listitem}>
+            <img src={item.url} alt="Poster" />
+            <div className={classes.infolistwrapper}>
+              <h3>{item.title}</h3>
+              <p>{item.years}</p>
+              <p>Рейтинг Кинопоиск: {item.score}</p>
+            </div>
+            <div className={classes.buttonwrapper}>
+              <Button id="Смотреть" />
+            </div>
+          </div>
+        ))}
+        <div className={classes.bioWrapper} id="bio">
+          <Title arrow={false} title={"Биография"} />
+          <TextShow number={300} text={actors[0].bio} />
+        </div>
+      </div>
+    </div>
+  );
 }
