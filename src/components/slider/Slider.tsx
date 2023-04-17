@@ -1,25 +1,21 @@
 import { useEffect, useState } from 'react';
-import Poster from '../poster/Poster';
+import { Poster } from '../poster/Poster';
 import classes from './Slider.module.scss';
 
 interface SliderProps {
 	slides: Slide[];
-	posters: boolean;
+	size: 's' | 'm' | 'l';
 	autoPlay: boolean;
 	autoPlayTime: number;
 }
 
-export function Slider({
-	slides,
-	posters,
-	autoPlay,
-	autoPlayTime,
-}: SliderProps) {
+export function Slider({ slides, size, autoPlay, autoPlayTime }: SliderProps) {
 	const [slide, setSlide] = useState(0);
 
 	function changeSlide(direction = 1) {
 		let length = 0;
-		if (posters) length = Math.ceil(slides.length / 7);
+		if (size === 's') length = Math.ceil(slides.length / 7);
+		else if (size === 'm') length = Math.ceil(slides.length / 5);
 		else length = slides.length;
 		if (slide + direction < 0) {
 			setSlide(length - 1);
@@ -42,20 +38,21 @@ export function Slider({
 		<div className={classes.container}>
 			<div
 				className={classes.subcontainer}
-				style={{
-					overflow: posters ? 'hidden' : '',
-					padding: posters ? '20px 5px 25px 5px' : '0',
-				}}
+				style={size === 's' || size === 'm' ?{
+					overflow: 'hidden',
+					padding: '20px 5px 25px 5px',
+				} : {}}
 			>
 				<div
-					className={classes.slide_list}
+					className={classes.slide__list}
 					style={{ transform: `translateX(-${slide * 100}%)` }}
 				>
-					{posters ? (
+					{size === 's' ? (
 						<div className={classes.posters}>
 							{slides.map((slide, index) => {
 								return (
 									<Poster
+										size='s'
 										title={slide.title}
 										url={slide.url}
 										score={slide.score}
@@ -66,22 +63,26 @@ export function Slider({
 								);
 							})}
 						</div>
+					) : size === 'm' ? (
+						<div className={classes.posters}>
+							{slides.map((slide, index) => (
+								<Poster
+									size='m'
+									url={slide.url}
+									number={slide.number}
+									key={index}
+								/>
+							))}
+						</div>
 					) : (
 						slides.map((slide, index) => (
-							<div className={classes.slide} key={index}>
-								<div className={classes.info}>
-									<h1 className={classes.name}>{slide.title}</h1>
-									<span className={classes.description}>
-										{slide.description}
-									</span>
-								</div>
-
-								<img
-									src={slide.url}
-									className={classes.slide_image}
-									alt={slide.title}
-								/>
-							</div>
+							<Poster
+								size='l'
+								title={slide.title}
+								url={slide.url}
+								description={slide.description}
+								key={index}
+							/>
 						))
 					)}
 				</div>
@@ -98,4 +99,4 @@ export function Slider({
 			</div>
 		</div>
 	);
-};
+}
