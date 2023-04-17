@@ -1,0 +1,83 @@
+@import './../../styles/variables.scss';
+
+.wrapper{
+    display: grid;
+    width: 700px;
+    margin: 0 auto;
+        p{
+        color: $color-text-second;
+        }
+}
+
+
+
+.infowrapper{
+    display: flex;
+    padding: 50px 0 30px;
+    div {
+        margin-left: 50px;
+    }
+    img{
+        width: 150px;
+        border-radius: 30px;
+    }
+}
+
+.showall {
+    margin-top: 15px;
+    cursor: pointer;
+    &:hover{
+        color: $color-text ;
+    }
+}
+
+.nav{
+    display: flex;
+    margin: 30px 0;
+    font-size: 22px;
+    color: $color-text-second ;
+    gap: 10px;
+    a{
+        &:hover{
+            color: $color-text ;
+        }
+
+    } 
+}
+
+.listlabel{
+    margin: 30px 0 20px 0;
+
+    display: flex;
+    p{
+        margin: auto 0 auto 15px;
+    }
+}
+
+.listitem{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    img{
+        width: 100px
+    };
+
+}
+
+.infolistwrapper{
+    margin: auto auto auto 50px;
+    p{
+        padding: 2px 0;
+    }
+}
+
+.buttonwrapper{
+    margin: auto 0;
+}
+
+.bioWrapper{
+    margin:  50px 0;
+    p{
+        margin-top: 20px;
+    }
+}
