@@ -23,7 +23,6 @@ export const Button = ({
 			{id ? (
 				<p>
 					<FormattedMessage id={id} />
-					
 				</p>
 			) : (
 				<img className={classes.icon} src={src} alt='icon' />
