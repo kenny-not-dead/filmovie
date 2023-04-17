@@ -1,7 +1,23 @@
-.slider__block {
+.container {
 	display: flex;
-	flex-wrap: wrap;
-	//flex-direction: column;
+	flex-direction: column;
+	gap: 30px;
 
-	//gap: 10px;
+	.slider__block {
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 30px;
+		//flex-direction: column;
+
+		//gap: 10px;
+	}
+
+	.loyalty__buttons {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+
+		gap: 20px;
+	}
 }

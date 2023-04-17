@@ -5,21 +5,30 @@ import block from '../../static/svgs/block.svg';
 import magic from '../../static/svgs/magic.svg';
 
 interface PosterProps {
-	title: string;
+	size: 's' | 'm' | 'l';
+	title?: string;
 	url: string;
-	score: string | undefined;
-	info: string | undefined;
-	seasons: string | undefined;
+	score?: string;
+	info?: string;
+	seasons?: string;
+	description?: string;
+	number?: string;
 }
 
-function Poster({title, url, score, info, seasons}: PosterProps) {
-	return (
-		<div className={classes.container}>
+export const Poster = ({
+	size,
+	title,
+	url,
+	score,
+	info,
+	seasons,
+	description,
+	number
+}: PosterProps) => {
+	return size === 's' ? (
+		<div className={classes.container__s}>
 			<div className={classes.poster}>
-				<img
-					src={url}
-					alt=''
-				/>
+				<img src={url} alt={title} />
 			</div>
 			<div className={classes.properties}>
 				<div className={classes.head}>
@@ -38,7 +47,20 @@ function Poster({title, url, score, info, seasons}: PosterProps) {
 			</div>
 			<span className={classes.name}>{title}</span>
 		</div>
-	);
-}
+	) : size === 'm' ? (
+		<div className={classes.container__m}>
+			<img src={url} className={classes.slide__image} alt={title} />
+			<img src={number} className={classes.number} alt={title} />
+			<div className={classes.shadow}></div>
+		</div>
+	) : (
+		<div className={classes.container__l}>
+			<div className={classes.info}>
+				<h1 className={classes.name}>{title}</h1>
+				<span className={classes.description}>{description}</span>
+			</div>
 
-export default Poster;
+			<img src={url} className={classes.slide__image} alt={title} />
+		</div>
+	);
+};

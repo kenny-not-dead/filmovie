@@ -1,13 +1,11 @@
-import { useState } from "react";
-import Poster from "../../components/poster/Poster";
-import classes from './../MainPage/MainPage.module.scss'
-import mainclasses from './CatalogPage.module.scss'
-import { Select } from "../../components/catalog/Select";
-import { FilterSelect } from "../../components/UI/Filter/FilterSelect";
-
+import { useState } from 'react';
+import { Poster } from '../../components/poster/Poster';
+import classes from './../MainPage/MainPage.module.scss';
+import mainclasses from './CatalogPage.module.scss';
+import { Select } from '../../components/catalog/Select';
+import { FilterSelect } from '../../components/UI/Filter/FilterSelect';
 
 export function CatalogPage() {
-
 	const posters = [
 		{
 			title: 'Губка боб',
@@ -102,14 +100,13 @@ export function CatalogPage() {
 				<FilterSelect name='Жанры' value="Ужасы"/>
 				<FilterSelect name=' Страны' value="Россия"/>
 			</div>
-	
-
 
 			<div className={classes.slider__block}>
 				<div className={mainclasses.catalog}>
 							{catalog.map((slide, index) => {
 								return (
 									<Poster
+										size='s'
 										title={slide.title}
 										url={slide.url}
 										score={slide.score}
