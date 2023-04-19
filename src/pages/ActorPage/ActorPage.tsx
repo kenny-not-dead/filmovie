@@ -7,6 +7,7 @@ import { TextShow } from "../../components/UI/text/Textshow";
 
 let actors = [
   {
+    img: "https://world-wells.ru/wp-content/uploads/0/f/5/0f564624972dad2115ea70d4b0bff5b0.jpeg",
     name: "Сергей Бурунов",
     english: "Sergey Burunov",
     text: `Сергей Бурунов – российский актер театра и кино, актер озвучивания и пародист. 
@@ -59,47 +60,53 @@ let actors = [
 
 export function ActorPage() {
   return (
-    <div className={classes.wrapper}>
-      <div className={classes.infowrapper}>
+    <>
+      <div className={classes.test}>
         <img
-          src="https://world-wells.ru/wp-content/uploads/0/f/5/0f564624972dad2115ea70d4b0bff5b0.jpeg"
-          alt="Photo"
+          src="https://thumbs.dfs.ivi.ru/storage23/contents/2/b/0c693b91b7b3361068d637b42e3ed0.jpg/1920x1080/?q=85"
+          alt=""
+          className={classes.bgimg}
         />
-        <div>
-          <h2>{actors[0].name}</h2>
-          <p>{actors[0].english}</p>
-        </div>
       </div>
-      <TextShow number={150} text={actors[0].text} />
-      <div className={classes.nav}>
-        <a href="#film">{actors[0].film.length} фильма</a>
-        <Point />
-        <a href="#bio">Биография</a>
-      </div>
-      <div id="film">
-        <div className={classes.listlabel}>
-          <Title arrow={false} title={"Полная фильмография"} />
-          <p>{actors[0].film.length} фильма</p>
-        </div>
-
-        {actors[0].film.map((item) => (
-          <div className={classes.listitem}>
-            <img src={item.url} alt="Poster" />
-            <div className={classes.infolistwrapper}>
-              <h3>{item.title}</h3>
-              <p>{item.years}</p>
-              <p>Рейтинг Кинопоиск: {item.score}</p>
-            </div>
-            <div className={classes.buttonwrapper}>
-              <Button id="Смотреть" />
-            </div>
+      <div className={classes.wrapper}>
+        <div className={classes.infowrapper}>
+          <img src={actors[0].img} alt="Photo" />
+          <div>
+            <h2>{actors[0].name}</h2>
+            <p>{actors[0].english}</p>
           </div>
-        ))}
-        <div className={classes.bioWrapper} id="bio">
-          <Title arrow={false} title={"Биография"} />
-          <TextShow number={300} text={actors[0].bio} />
+        </div>
+        <TextShow number={150} text={actors[0].text} />
+        <div className={classes.nav}>
+          <a href="#film">{actors[0].film.length} фильма</a>
+          <Point />
+          <a href="#bio">Биография</a>
+        </div>
+        <div id="film">
+          <div className={classes.listlabel}>
+            <Title arrow={false} title={"Полная фильмография"} />
+            <p>{actors[0].film.length} фильма</p>
+          </div>
+
+          {actors[0].film.map((item) => (
+            <div className={classes.listitem}>
+              <img src={item.url} alt="Poster" />
+              <div className={classes.infolistwrapper}>
+                <h3>{item.title}</h3>
+                <p>{item.years}</p>
+                <p>Рейтинг Кинопоиск: {item.score}</p>
+              </div>
+              <div className={classes.buttonwrapper}>
+                <Button id="Смотреть" />
+              </div>
+            </div>
+          ))}
+          <div className={classes.bioWrapper} id="bio">
+            <Title arrow={false} title={"Биография"} />
+            <TextShow number={300} text={actors[0].bio} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
