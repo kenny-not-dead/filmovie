@@ -124,11 +124,10 @@
 }
 
 .container__l {
-	position: relative;
-	flex: 1 0 100%;
-	box-sizing: border-box;
-	padding: 0px 10px 0px 10px;
-	left: -10px;
+	position: absolute;
+	width: 100%;
+
+	padding-right: 25px;
 
 	.slide__image {
 		display: flex;
@@ -151,4 +150,7 @@
 			font-weight: 700;
 		}
 	}
+
+	opacity: .3;
+	transition: .5s;
 }

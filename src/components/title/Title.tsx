@@ -10,7 +10,7 @@ interface TitleProps {
 
 export function Title({top, arrow, title}: TitleProps) {
 	return (
-		<div className={classes.container}>
+		<div data-testid={'title-container'} className={classes.container}>
 			{top && <img src={topSvg} className={classes.top} alt='' />}
 			<h2 className={classes.title} style={top ? {lineHeight: '30px'} : {}}>{title}</h2>
 			{arrow && <img src={arrowSvg} className={classes.arrow} alt='' />}
