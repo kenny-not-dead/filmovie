@@ -13,6 +13,7 @@ interface PosterProps {
 	seasons?: string;
 	description?: string;
 	number?: string;
+	position?: string;
 }
 
 export const Poster = ({
@@ -23,7 +24,8 @@ export const Poster = ({
 	info,
 	seasons,
 	description,
-	number
+	number,
+	position,
 }: PosterProps) => {
 	return size === 's' ? (
 		<div className={classes.container__s}>
@@ -54,7 +56,20 @@ export const Poster = ({
 			<div className={classes.shadow}></div>
 		</div>
 	) : (
-		<div className={classes.container__l}>
+		<div
+			className={classes.container__l}
+			style={
+				position === 'active'
+					? { opacity: '1', transform: 'translateX(0)' }
+					: position === 'next'
+					? { transform: 'translateX(100%)' }
+					: position === 'next2'
+					? { opacity: '0', transform: 'translateX(200%)' }
+					: position === 'last2'
+					? { opacity: '0', transform: 'translateX(-200%)' }
+					: { transform: 'translateX(-100%)' }
+			}
+		>
 			<div className={classes.info}>
 				<h1 className={classes.name}>{title}</h1>
 				<span className={classes.description}>{description}</span>

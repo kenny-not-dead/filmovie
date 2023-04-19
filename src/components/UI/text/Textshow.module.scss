@@ -1,18 +1,19 @@
 @import './../../../styles/variables.scss';
 
+.wraper {
+  box-sizing: border-box;
 
-.wraper{
-    p{
-    color: $color-text-second;
-    }
-
+  padding: 0px 10px 0px 10px;
+  
+	p {
+		color: $color-text-second;
+	}
 }
 
 .showall {
-  margin-top: 15px;
-  cursor: pointer;
-  &:hover{
-      color: $color-text ;
-  }
+	margin-top: 15px;
+	cursor: pointer;
+	&:hover {
+		color: $color-text;
+	}
 }
-
