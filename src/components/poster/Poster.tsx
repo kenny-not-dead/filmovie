@@ -28,7 +28,7 @@ export const Poster = ({
 	position,
 }: PosterProps) => {
 	return size === 's' ? (
-		<div className={classes.container__s}>
+		<div data-testid={'poster-s'} className={classes.container__s}>
 			<div className={classes.poster}>
 				<img src={url} alt={title} />
 			</div>
@@ -50,13 +50,14 @@ export const Poster = ({
 			<span className={classes.name}>{title}</span>
 		</div>
 	) : size === 'm' ? (
-		<div className={classes.container__m}>
+		<div data-testid={'poster-m'} className={classes.container__m}>
 			<img src={url} className={classes.slide__image} alt={title} />
 			<img src={number} className={classes.number} alt={title} />
 			<div className={classes.shadow}></div>
 		</div>
 	) : (
 		<div
+			data-testid={'poster-l'}
 			className={classes.container__l}
 			style={
 				position === 'active'

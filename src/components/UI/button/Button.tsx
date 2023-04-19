@@ -25,7 +25,12 @@ export const Button = ({
 					<FormattedMessage id={id} />
 				</p>
 			) : (
-				<img className={classes.icon} src={src} alt='icon' />
+				<img
+					data-testid={'button-icon'}
+					className={classes.icon}
+					src={src}
+					alt='icon'
+				/>
 			)}
 		</button>
 	);
