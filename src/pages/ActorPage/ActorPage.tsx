@@ -61,13 +61,6 @@ let actors = [
 export function ActorPage() {
   return (
     <>
-      <div className={classes.test}>
-        <img
-          src="https://thumbs.dfs.ivi.ru/storage23/contents/2/b/0c693b91b7b3361068d637b42e3ed0.jpg/1920x1080/?q=85"
-          alt=""
-          className={classes.bgimg}
-        />
-      </div>
       <div className={classes.wrapper}>
         <div className={classes.infowrapper}>
           <img src={actors[0].img} alt="Photo" />
