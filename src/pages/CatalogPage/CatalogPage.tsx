@@ -6,6 +6,7 @@ import { Select } from "../../components/catalog/Select";
 import { FilterSelect } from "../../components/UI/Filter/FilterSelect";
 import { Input } from "../../components/UI/input/Input";
 import search from "./../../static/svgs/search.svg";
+import { RangeFilter } from "../../components/UI/Filter/RangeFilter";
 
 export function CatalogPage() {
   const posters = [
@@ -128,6 +129,18 @@ export function CatalogPage() {
     onFilter();
   }, [valuefind, valuefindActor]);
 
+  const [rating, setRating] = useState(7.3);
+  const [score, setScore] = useState(1);
+
+  const changeRating = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.name == "rating") {
+      setRating(Number(event.target.value));
+    } else if (event.target.name == "score") {
+      setScore(Number(event.target.value));
+      //добавить onFilter
+    }
+  };
+
   return (
     <>
       <div className={mainclasses.sortwrapper}>
@@ -156,6 +169,26 @@ export function CatalogPage() {
       <div className={mainclasses.filterwrapper}>
         <FilterSelect name="Жанры" value="Ужасы" />
         <FilterSelect name=" Страны" value="Россия" />
+        <RangeFilter
+          label="Рейтинг"
+          value={rating}
+          onChange={(e) => changeRating(e)}
+          min={0}
+          max={10}
+          step={0.1}
+          name="rating"
+        />
+        <RangeFilter
+          label="Количество оценок"
+          value={score}
+          onChange={(e) => changeRating(e)}
+          min={0}
+          max={100000}
+          step={1000}
+          name="score"
+        />
+      </div>
+      <div className={mainclasses.inputfilterwrapper}>
         <Input
           placeholder="Поиск по режиссёру"
           id=""
@@ -171,7 +204,6 @@ export function CatalogPage() {
           onChange={(e) => inputHandler(e)}
         />
       </div>
-
       <div className={classes.slider__block}>
         <div className={mainclasses.catalog}>
           {catalog.map((slide, index) => {
