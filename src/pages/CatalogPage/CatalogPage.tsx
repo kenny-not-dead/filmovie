@@ -101,12 +101,20 @@ export function CatalogPage() {
       setCatalog(
         newValue
           .filter((item) => {
-            if (item.title.includes(valuefind)) {
+            if (
+              item.title
+                .toLocaleLowerCase()
+                .includes(valuefind.toLocaleLowerCase())
+            ) {
               return true;
             }
           })
           .filter((item) => {
-            if (item.seasons.includes(valuefindActor)) {
+            if (
+              item.seasons
+                .toLocaleLowerCase()
+                .includes(valuefindActor.toLocaleLowerCase())
+            ) {
               return true;
             }
           })
@@ -118,11 +126,7 @@ export function CatalogPage() {
 
   useEffect(() => {
     onFilter();
-  }, [valuefind]);
-
-  useEffect(() => {
-    onFilter();
-  }, [valuefindActor]);
+  }, [valuefind, valuefindActor]);
 
   return (
     <>
