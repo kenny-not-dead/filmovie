@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./FilterSelect.module.scss";
-import { Link } from "react-router-dom";
 import { Subfilter } from "./Subfilter";
 import { Chevronup } from "../elem/Chevronup";
 import { Chevrondown } from "../elem/Chevrondown";
+import { Link } from "react-router-dom";
 
 interface FilterSelectType {
   name: string;
@@ -11,6 +11,8 @@ interface FilterSelectType {
 }
 
 export function FilterSelect(props: FilterSelectType) {
+  const [path, setPath] = useState(["test"]); //test
+
   const [chevron, setChevron] = useState(false);
 
   const showmenu = () => {
@@ -28,10 +30,7 @@ export function FilterSelect(props: FilterSelectType) {
       </div>
       {chevron ? (
         <div className={classes.subfilter}>
-          <Subfilter value={props.value} />
-          <Subfilter value={props.value} />
-          <Subfilter value={props.value} />
-          <Subfilter value={props.value} />
+          <Subfilter value={props.value} link="mmm" path={path} />
         </div>
       ) : (
         ""

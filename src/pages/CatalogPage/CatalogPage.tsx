@@ -13,56 +13,64 @@ export function CatalogPage() {
     {
       title: "Губка боб",
       url: "https://thumbs.dfs.ivi.ru/storage2/contents/1/1/24e317e380f8a6bf033e25c3b47cc9.jpg/234x360/?q=85",
-      score: "7,9",
+      score: "7.9",
+      estimation: 100,
       info: "1999-2021, США, Фентези",
       seasons: "13 сезонов",
     },
     {
       title: "Титаник",
       url: "https://thumbs.dfs.ivi.ru/storage23/contents/8/5/d8d2fea60b6a57adb2d25a76499f58.jpg/234x360/?q=85",
-      score: "8,6",
+      score: "8.6",
+      estimation: 1000,
       info: "2012, Россия, Документальные",
       seasons: "1 сезон",
     },
     {
       title: "Друзья",
       url: "https://thumbs.dfs.ivi.ru/storage8/contents/e/6/071e0668ff2d48216b7967891ca39f.jpg/234x360/?q=85",
-      score: "9,1",
+      score: "9.1",
+      estimation: 2000,
       info: "1994-2004, США, Комедийные",
       seasons: "10 сезонов",
     },
     {
       title: "Губка боб",
       url: "https://thumbs.dfs.ivi.ru/storage2/contents/1/1/24e317e380f8a6bf033e25c3b47cc9.jpg/234x360/?q=85",
-      score: "7,9",
+      score: "7.9",
+      estimation: 3000,
       info: "1999-2021, США, Фентези",
       seasons: "13 сезонов",
     },
     {
       title: "Титаник",
       url: "https://thumbs.dfs.ivi.ru/storage23/contents/8/5/d8d2fea60b6a57adb2d25a76499f58.jpg/234x360/?q=85",
-      score: "8,6",
+      score: "8.6",
+      estimation: 4000,
       info: "2012, Россия, Документальные",
       seasons: "1 сезон",
     },
     {
       title: "Друзья",
       url: "https://thumbs.dfs.ivi.ru/storage8/contents/e/6/071e0668ff2d48216b7967891ca39f.jpg/234x360/?q=85",
-      score: "9,1",
+      score: "9.1",
+      estimation: 5000,
       info: "1994-2004, США, Комедийные",
       seasons: "10 сезонов",
     },
     {
       title: "Титаник",
       url: "https://thumbs.dfs.ivi.ru/storage23/contents/8/5/d8d2fea60b6a57adb2d25a76499f58.jpg/234x360/?q=85",
-      score: "8,6",
+      score: "8.6",
+      estimation: 7000,
       info: "2012, Россия, Документальные",
       seasons: "1 сезон",
     },
     {
       title: "Друзья",
       url: "https://thumbs.dfs.ivi.ru/storage8/contents/e/6/071e0668ff2d48216b7967891ca39f.jpg/234x360/?q=85",
-      score: "9,1",
+      score: "9.1",
+      estimation: 10000000,
       info: "1994-2004, США, Комедийные",
       seasons: "10 сезонов",
     },
@@ -96,7 +104,9 @@ export function CatalogPage() {
   };
 
   const onFilter = () => {
-    let newValue = posters;
+    let newValue = posters
+      .filter((i) => +i.score >= rating)
+      .filter((i) => i.estimation >= score);
 
     if (valuefind.length != 0 || valuefindActor.length != 0) {
       setCatalog(
@@ -135,11 +145,24 @@ export function CatalogPage() {
   const changeRating = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.name == "rating") {
       setRating(Number(event.target.value));
+      onFilter();
     } else if (event.target.name == "score") {
       setScore(Number(event.target.value));
-      //добавить onFilter
+      onFilter();
     }
   };
+
+  const clearfilter = () => {
+    setRating(0);
+    setScore(0);
+    setValuefind("");
+    setValuefindActor("");
+    setSearchactive(false);
+    setSearchactive2(false);
+  };
+
+  const [searchactive, setSearchactive] = useState(false);
+  const [searchactive2, setSearchactive2] = useState(false);
 
   return (
     <>
@@ -166,44 +189,106 @@ export function CatalogPage() {
           ]}
         />
       </div>
-      <div className={mainclasses.filterwrapper}>
-        <FilterSelect name="Жанры" value="Ужасы" />
-        <FilterSelect name=" Страны" value="Россия" />
-        <RangeFilter
-          label="Рейтинг"
-          value={rating}
-          onChange={(e) => changeRating(e)}
-          min={0}
-          max={10}
-          step={0.1}
-          name="rating"
-        />
-        <RangeFilter
-          label="Количество оценок"
-          value={score}
-          onChange={(e) => changeRating(e)}
-          min={0}
-          max={100000}
-          step={1000}
-          name="score"
-        />
+      <div className={mainclasses.mainfilterwrapper}>
+        <div className={mainclasses.filterwrapper}>
+          <FilterSelect name="Жанры" value="Ужасы" />
+          <FilterSelect name=" Страны" value="Россия" />
+          <RangeFilter
+            label="Рейтинг"
+            value={rating}
+            onChange={(e) => changeRating(e)}
+            min={0}
+            max={10}
+            step={0.1}
+            name="rating"
+          />
+          <RangeFilter
+            label="Количество оценок"
+            value={score}
+            onChange={(e) => changeRating(e)}
+            min={0}
+            max={100000}
+            step={1000}
+            name="score"
+          />
+        </div>
+        <div className={mainclasses.inputfilterwrapper}>
+          {searchactive ? (
+            <div>
+              <Input
+                placeholder="Поиск по режиссёру"
+                id=""
+                icon={search}
+                value={valuefind}
+                onChange={(e) => inputHandler(e)}
+              />
+            </div>
+          ) : (
+            <div
+              className={mainclasses.searchwrapper}
+              onClick={() => {
+                setSearchactive((prevSearchactive) => !prevSearchactive);
+              }}
+            >
+              <h4>Поиск по режиссёру</h4>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="white"
+                className="bi bi-search"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+              </svg>
+            </div>
+          )}
+          {searchactive2 ? (
+            <div>
+              <Input
+                placeholder="Поиск по актёру"
+                id=""
+                icon={search}
+                value={valuefindActor}
+                onChange={(e) => inputHandler(e)}
+              />
+            </div>
+          ) : (
+            <div
+              className={mainclasses.searchwrapper}
+              onClick={() => {
+                setSearchactive2((prevSearchactive2) => !prevSearchactive2);
+              }}
+            >
+              <h4>Поиск по актёру</h4>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="white"
+                className="bi bi-search"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+              </svg>
+            </div>
+          )}
+        </div>
+        <div className={mainclasses.clear} onClick={clearfilter}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="white"
+            className="bi bi-x-lg"
+            viewBox="0 0 16 16"
+          >
+            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+          </svg>
+          <p>Cбросить фильтры</p>
+        </div>
       </div>
-      <div className={mainclasses.inputfilterwrapper}>
-        <Input
-          placeholder="Поиск по режиссёру"
-          id=""
-          icon={search}
-          value={valuefind}
-          onChange={(e) => inputHandler(e)}
-        />
-        <Input
-          placeholder="Поиск по актёру"
-          id=""
-          icon={search}
-          value={valuefindActor}
-          onChange={(e) => inputHandler(e)}
-        />
-      </div>
+
       <div className={classes.slider__block}>
         <div className={mainclasses.catalog}>
           {catalog.map((slide, index) => {
