@@ -46,14 +46,14 @@ export const Slider = ({ slides, size, autoPlay, autoPlayTime }: SliderProps) =>
 			}
 		>
 			<div
-				className={classes.sub__container}
+				className={size === 'l' ? classes.l__container : classes.sub__container}
 				style={
 					size === 's' || size === 'm'
 						? {
 								overflow: 'hidden',
 								padding: '20px 0px 25px 5px',
 						  }
-						: { height: '530px' }
+						: {}
 				}
 			>
 				<div

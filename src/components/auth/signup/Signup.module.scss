@@ -81,3 +81,10 @@
 		cursor: pointer;
 	}
 }
+
+@media (max-width: 576px) {
+	.form__container {
+		width: 300px;
+
+	}
+}
