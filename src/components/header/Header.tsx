@@ -18,12 +18,14 @@ export function Header(props: SubfilterType) {
   return (
     <header className={classes.container}>
       <div>
-        <img src={logo} alt="Kinogramm" />
+        <NavLink to={"/"}>
+          <img src={logo} alt="Kinogramm" />
+        </NavLink>
         <nav>
           <NavLink to={"/"}>
             <FormattedMessage id="main" />
           </NavLink>
-          <NavLink to={"/catalog"}>
+          <NavLink to={"/filter"}>
             <FormattedMessage id="films" />
           </NavLink>
           <NavLink to={"/admin"}>

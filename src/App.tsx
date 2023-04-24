@@ -39,7 +39,7 @@ function App() {
           >
             <Route path="/" index element={<MainPage />} />
             <Route path="/catalog/:id" element={<FilmPage />} />
-            <Route path="/catalog" element={<CatalogPage />} />
+            <Route path="/filter/*" element={<CatalogPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/auth" element={<AuthPage />} />
             <Route path="/actor/:id" element={<ActorPage />} />
@@ -52,3 +52,4 @@ function App() {
 }
 
 export default App;
+//<Route path="/catalog" element={<CatalogPage />} />

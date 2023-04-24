@@ -59,7 +59,7 @@ describe("render components", () => {
       </MemoryRouter>
     );
     expect(screen.getAllByText(name).length).toBe(1);
-    // expect(screen.getAllByText(nameEnglish).length).toBe(1);
+    expect(screen.getAllByText(nameEnglish).length).toBe(1);
   });
 
   test("render buttons", () => {
