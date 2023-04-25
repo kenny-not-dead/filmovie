@@ -39,10 +39,11 @@ code {
 }
 
 #root {
-	display: grid;
+	display: flex;
 	margin: 0 auto;
 	width: 1250px;
 	justify-self: center;
+	flex-direction: column;
 }
 
 

@@ -1,53 +1,71 @@
-@import './../../styles/variables.scss';
+@import "./../../styles/variables.scss";
 
-.wrapper{
-    display: flex;
-    justify-content: space-between;
-    padding: 40px 0;
-    h4{
-        margin-bottom: 5px;
-    }
-    p{
-        color: $color-text-second;
-    }
-    a{
-        padding-top: 5px;
-    }
-    border-bottom: .5px solid rgb(112, 112, 112);
-    
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+  h4 {
+    margin-bottom: 5px;
+  }
+  p {
+    color: $color-text-second;
+  }
+  a {
+    padding-top: 5px;
+  }
+  border-bottom: 0.5px solid rgb(112, 112, 112);
 }
 
-.nav{
-    margin: 0 90px 0 50px;
-    a{
-        display: block;
-        color: $color-text-second;
-        &:hover{
-            color: $color-text;
-        }
+.nav {
+  margin: 0 90px 0 50px;
+  a {
+    display: block;
+    color: $color-text-second;
+    &:hover {
+      color: $color-text;
     }
-
+  }
 }
 
-.minibtnwrapper{
-    margin: 10px 0;
-    display: flex;
-    justify-content: start;
-    gap: 8px;
+.minibtnwrapper {
+  margin: 10px 0;
+  display: flex;
+  justify-content: start;
+  gap: 8px;
 }
 
-.btnwrapper{
-    margin: 15px 0;
+.btnwrapper {
+  margin: 15px 0;
 }
 
-.subscription{
-    width: 250px;
-    text-align: center;
-    img{
-        width: 200px;
-        display: block;
-        margin: 0 auto;
-        padding-bottom: 20px
-        
-    };
+.subscription {
+  width: 250px;
+  text-align: center;
+  img {
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .wrapper {
+    div {
+      display: none;
+    }
+    .nav {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      background-color: rgb(2, 2, 75);
+      width: 100%;
+      margin: 0;
+      opacity: 80%;
+      display: flex;
+      justify-content: space-around;
+
+      h4{display: none;}
+    }
+  }
 }

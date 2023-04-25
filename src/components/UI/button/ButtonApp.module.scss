@@ -1,4 +1,4 @@
-@import './../../../styles/variables.scss';
+@import "./../../../styles/variables.scss";
 
 .btn {
   background: $color-btn;
@@ -7,30 +7,33 @@
   font-weight: 700;
   padding: 5px 20px;
   margin-right: 15px;
-  a{
+  a {
     display: flex;
   }
-  p{
+  p {
     color: white;
     padding: 0;
     margin: 0;
     font-size: 16px;
-    text-align: start
-    
-  };  
+    text-align: start;
+  }
   &:hover {
     background: $color-btn-hover;
-  };
-  img{
+  }
+  img {
     width: 20px;
     margin: auto 0;
-    padding-right:10px;
-  };
-  .firstp{
+    padding-right: 10px;
+  }
+  .firstp {
     color: $color-text-second;
     font-size: 10px;
   }
 }
 
-
-
+@media (max-width: 1280px) {
+  .btn {
+    padding: 15px 60px;
+    margin-right: 0;
+  
+  }}

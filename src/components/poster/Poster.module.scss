@@ -155,6 +155,23 @@
 	transition: 0.5s;
 }
 
+
+
+@media (max-width: 1280px) {
+	.container__s {
+		width: 137px;
+		height: 210px;
+	}
+
+	.container__m {
+		width: 178px;
+		height: 444px;
+	}
+}
+
+
+
+
 @media (max-width: 576px) {
 	.container__s {
 		width: 107px;
@@ -222,17 +239,5 @@
 
 	.name {
 		font-size: 20px !important;
-	}
-}
-
-@media (min-width: 576px) and (max-width: 1200px) {
-	.container__s {
-		width: 137px;
-		height: 210px;
-	}
-
-	.container__m {
-		width: 218px;
-		height: 444px;
 	}
 }
