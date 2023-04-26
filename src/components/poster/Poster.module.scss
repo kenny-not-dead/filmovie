@@ -91,6 +91,8 @@
 	width: 224px;
 	height: 456px;
 
+	padding-right: 25px;
+
 	.slide__image {
 		width: 100%;
 		border-radius: 10px;
@@ -155,8 +157,6 @@
 	transition: 0.5s;
 }
 
-
-
 @media (max-width: 1280px) {
 	.container__s {
 		width: 137px;
@@ -165,68 +165,50 @@
 
 	.container__m {
 		width: 178px;
-		height: 444px;
+		height: 363px;
+
+		.number {
+			left: 55px;
+			bottom: 0px;
+		}
+	}
+
+	.container__l {
+		.slide__image {
+			border-radius: 15px;
+		}
+
+		.info {
+			bottom: 20px;
+			left: 20px;
+
+			h1 {
+				line-height: 40px;
+			}
+		}
 	}
 }
 
-
-
-
-@media (max-width: 576px) {
-	.container__s {
-		width: 107px;
-		height: 164px;
-
-		.poster {
-			border-radius: 5px;
-		}
-
-		.properties {
-			// height: 145px;
-			padding: 10px !important;
-
-			.head {
-				height: 80px;
-				span {
-					font-size: 18px !important;
-				}
-			}
-
-			.info {
-				gap: 2px !important;
-
-				span {
-					font-size: 8px !important;
-				}
-			}
-
-			.buttons {
-				display: flex;
-				flex-direction: column;
-				gap: 4px !important;
-
-				img {
-					width: 16px !important;
-
-					stroke: black 2px;
-				}
-			}
-		}
-
-		.name {
-			font-size: 10px !important;
-			bottom: -18px;
-		}
-	}
-
+@media (max-width: 769px) {
 	.container__m {
-		width: 146px;
-		height: 298px;
+		width: 216px;
+
+		padding-bottom: 100px;
 
 		.number {
-			width: 46;
-			height: 46px;
-			left: 28%;
+			left: 75px;
+		}
+	}
+}
+
+@media (max-width: 641px) {
+	.container__m {
+		width: 174px;
+
+		padding-bottom: 15px;
+
+		.number {
+			left: 55px;
 		}
 	}
 
@@ -234,10 +216,42 @@
 		.info {
 			bottom: 20px;
 			left: 20px;
+
+			h1 {
+				font-size: 30px !important;
+				line-height: 30px;
+			}
+		}
+	}
+}
+
+@media (max-width: 481px) {
+	.container__m {
+		width: 124px;
+		height: 252px;
+
+		padding-bottom: 0px;
+
+		.shadow {
+			width: 124px;
+			bottom: -5px;
+		}
+
+		.number {
+			bottom: -25px;
+			left: 28px;
 		}
 	}
 
-	.name {
-		font-size: 20px !important;
+	.container__l {
+		.info {
+			bottom: 20px;
+			left: 20px;
+
+			h1 {
+				font-size: 30px !important;
+				line-height: 30px;
+			}
+		}
 	}
 }
