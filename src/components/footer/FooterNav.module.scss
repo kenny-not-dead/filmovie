@@ -17,6 +17,9 @@
 }
 
 .nav {
+  svg{
+    display: none;
+  }
   margin: 0 90px 0 50px;
   a {
     display: block;
@@ -50,21 +53,29 @@
   }
 }
 
+
 @media (max-width: 1280px) {
   .wrapper {
-    div {
+    height: 0px;
+    padding: 0;
+    .aboutus, .support, .footerlogo {
       display: none;
     }
     .nav {
+      svg{
+        display: block;
+        margin: 0 auto;
+      }
       display: block;
       position: fixed;
       bottom: 0;
-      background-color: rgb(2, 2, 75);
-      width: 100%;
+      background-color: rgba(31,27,46,.88);
+      width: 752px;
       margin: 0;
-      opacity: 80%;
+      opacity: 95%;
       display: flex;
       justify-content: space-around;
+      padding: 7px 0;
 
       h4{display: none;}
     }

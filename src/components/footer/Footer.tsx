@@ -6,7 +6,7 @@ import SocialNetworkWrapper from "./SocialNetworkWrapper";
 export function Footer() {
   return (
     <footer className={classes.container}>
-      {/* <FooterNav /> */}
+      <FooterNav />
       <SocialNetworkWrapper />
       <Info />
     </footer>

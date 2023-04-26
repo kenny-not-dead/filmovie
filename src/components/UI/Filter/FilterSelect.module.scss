@@ -42,3 +42,10 @@
   width: 290px;
   flex-wrap: wrap;
 }
+
+
+@media (max-width: 1280px) { 
+	.subwrapper{
+   width: 300px;
+  }
+}

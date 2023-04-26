@@ -71,3 +71,29 @@
         margin: auto 8px auto 0;
     }
 }
+
+
+@media (max-width: 1280px) { 
+
+    .mainfilterwrapper{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+    }
+	.filterwrapper{
+   flex-wrap: wrap;
+   justify-content: center;
+  }
+
+  .inputfilterwrapper{
+    width: 98%;
+    justify-content: center;
+    div{ width:45%};
+    margin-bottom: 20px;
+  }
+
+  .searchwrapper{
+    width: 300px;
+  }
+  
+}

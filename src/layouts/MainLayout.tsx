@@ -12,7 +12,6 @@ export const MainLayout = (props: any) => {
       />
       <Outlet />
       <Footer />
-      <FooterNav/>
     </>
   );
 };
