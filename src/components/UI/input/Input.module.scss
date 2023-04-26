@@ -31,3 +31,14 @@
 		transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
 	}
 }
+
+@media (max-width: 641px) {
+	.input__auth {
+		font-size: 10px;
+		height: 50px;
+
+		.icon {
+			width: 13px;
+		}
+	}
+}
