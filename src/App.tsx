@@ -10,6 +10,7 @@ import { IntlProvider } from "react-intl";
 import { LOCALES } from "./i18n/locales";
 import { messages } from "./i18n/messages";
 import { useState } from "react";
+import { CatalogPageMain } from "./pages/CatalogPage/CatalogPageMain";
 
 function App() {
   const locale = LOCALES.RUSSIAN;
@@ -39,7 +40,8 @@ function App() {
           >
             <Route path="/" index element={<MainPage />} />
             <Route path="/catalog/:id" element={<FilmPage />} />
-            <Route path="/filter/*" element={<CatalogPage />} />
+            <Route path="/movies/*" element={<CatalogPage />} />
+            <Route path="/movies/" element={<CatalogPageMain />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/auth" element={<AuthPage />} />
             <Route path="/actor/:id" element={<ActorPage />} />

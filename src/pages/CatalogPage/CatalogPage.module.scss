@@ -72,6 +72,19 @@
     }
 }
 
+.textwrapper{
+    padding: 20px 0 ;
+    width: 75%;
+}
+
+.filterlist{
+    display: flex;
+    margin: 20px 0;
+    padding: 0;
+    gap: 20px;
+
+}
+
 
 @media (max-width: 1280px) { 
 

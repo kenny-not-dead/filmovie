@@ -25,7 +25,7 @@ export function Header(props: SubfilterType) {
           <NavLink to={"/"}>
             <FormattedMessage id="main" />
           </NavLink>
-          <NavLink to={"/filter"}>
+          <NavLink to={"/movies"}>
             <FormattedMessage id="films" />
           </NavLink>
           <NavLink to={"/admin"}>

@@ -28,13 +28,7 @@ export function FilterSelect(props: FilterSelectType) {
         </div>
         {chevron ? <Chevronup /> : <Chevrondown />}
       </div>
-      {chevron ? (
-        <div className={classes.subfilter}>
-          <Subfilter value={props.value} link="mmm" path={path} />
-        </div>
-      ) : (
-        ""
-      )}
+      {chevron ? <div className={classes.subfilter}></div> : ""}
     </div>
   );
 }

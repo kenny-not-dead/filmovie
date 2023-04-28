@@ -1,14 +1,16 @@
 @import './../../../styles/variables.scss';
 
 .wrapper{
-   width: 40%;
-   height: 80px;
-   display: flex;
+   width: 120px;
+   display: block;
    justify-content: center;
    align-items: center;
-}
+   background: #2e2843;;
+   text-align: center;
+   padding: 5px;
+   border-radius: 10px;
 
-.switcher select {
-  width: 99px;
-  height: 30px;
+   img{
+    width: 50px;
+   }
 }
