@@ -32,15 +32,34 @@
 
 
 .subfilter{
-  display: flex;
-  justify-content: space-around;
+  display: block;
   position: absolute;
   z-index: 9999;
   margin-top: 10px;
   background: $color-btn;
   border-radius: 8px;
-  width: 290px;
-  flex-wrap: wrap;
+  width: 590px;
+  padding: 20px 20px;
+
+}
+
+
+.headfilter{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+  padding: 10px 0 20px;
+}
+
+.secondfilter{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  text-align: start;
+  margin:  0 auto;
+  gap: 20px;
+  padding: 20px 0;
+  font-size: 12px;
 }
 
 

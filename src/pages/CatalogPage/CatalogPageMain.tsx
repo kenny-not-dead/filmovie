@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Poster } from "../../components/poster/Poster";
 import classes from "./../MainPage/MainPage.module.scss";
-import mainclasses from "./CatalogPage.module.scss";
+import mainclasses from "./CatalogPageMain.module.scss";
 import { TextShow } from "../../components/UI/text/Textshow";
 import { Title } from "../../components/title/Title";
 import { Swiper, SwiperSlide } from "swiper/react";

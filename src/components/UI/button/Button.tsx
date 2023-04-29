@@ -1,14 +1,14 @@
-import React from 'react'
-import { FormattedMessage } from 'react-intl'
-import classes from './Button.module.scss'
+import React from "react";
+import { FormattedMessage } from "react-intl";
+import classes from "./Button.module.scss";
 
 export interface BtnProps {
-  className?: string
-  id?: string
-  src?: any
-  alt?: string
-  icon?: string
-  onClick?: React.MouseEventHandler<HTMLElement>
+  className?: string;
+  id?: string;
+  src?: any;
+  alt?: string;
+  icon?: string;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
 export const Button = ({
@@ -19,19 +19,19 @@ export const Button = ({
   ...props
 }: BtnProps) => {
   return (
-		<button onClick={onClick} className={classes[className] || classes.btn}>
-			{id ? (
-				<p>
-					<FormattedMessage id={id} />
-				</p>
-			) : (
-				<img
-					data-testid={'button-icon'}
-					className={classes.icon}
-					src={src}
-					alt='icon'
-				/>
-			)}
-		</button>
-	);
-}
+    <button onClick={onClick} className={classes[className] || classes.btn}>
+      {id ? (
+        <p>
+          <FormattedMessage id={id} />
+        </p>
+      ) : (
+        <img
+          data-testid={"button-icon"}
+          className={classes.icon}
+          src={src}
+          alt="icon"
+        />
+      )}
+    </button>
+  );
+};
