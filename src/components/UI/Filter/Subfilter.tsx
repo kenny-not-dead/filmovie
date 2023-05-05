@@ -7,6 +7,8 @@ interface SubfilterType {
   text: string;
   logo?: any;
   className?: string;
+  activeitem?: Array<string>;
+  setActiveitem?: any;
 }
 
 export function Subfilter({
@@ -14,12 +16,21 @@ export function Subfilter({
   logo,
   text,
   className = classes.wrapper,
+  activeitem = [],
+  setActiveitem,
 }: SubfilterType) {
   const [active, setActive] = useState(false);
 
-  const activeFilter = () => {
+  const activeFilter = (el: any) => {
     setActive((prevActive) => !prevActive);
+    if (!activeitem.includes(el.target.textContent)) {
+      activeitem.push(el.target.textContent);
+    } else {
+      setActiveitem(activeitem.filter((item) => item != el.target.textContent));
+    }
   };
+
+  useEffect(() => {}, [activeitem]);
 
   return (
     <>

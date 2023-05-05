@@ -174,12 +174,14 @@ export function FilterSelect(props: FilterSelectType) {
     data = [...country];
   }
 
+  const [activeitem, setActiveitem] = useState([]);
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.subwrapper} onClick={showmenu}>
         <div>
           <h4>{props.name}</h4>
-          <p>{props.value}</p>
+          <p>{activeitem.join(", ")}</p>
         </div>
         {chevron ? <Chevronup /> : <Chevrondown />}
       </div>
@@ -194,12 +196,20 @@ export function FilterSelect(props: FilterSelectType) {
                   text={i.text}
                   logo={mim}
                   className="wrappermini"
+                  activeitem={activeitem}
+                  setActiveitem={setActiveitem}
                 />
               ))}
           </div>
           <div className={classes.secondfilter}>
             {data.map((i) => (
-              <Subfilter value={i.value} text={i.text} className="textlist" />
+              <Subfilter
+                value={i.value}
+                text={i.text}
+                className="textlist"
+                activeitem={activeitem}
+                setActiveitem={setActiveitem}
+              />
             ))}
           </div>
         </div>
