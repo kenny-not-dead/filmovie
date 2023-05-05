@@ -1,0 +1,32 @@
+@import '../../../styles/variables.scss';
+
+.movieBreadCrumbsContainer {
+  margin: 0 12px;
+  max-width: 1216px;
+  height: 28px;
+  color: $color-text-second;
+  font-size: 15px;
+  line-height: 15px;
+  display: flex;
+  font-weight: 500;
+  .movieBreadCrumbsLinkType {
+    &:hover {
+      color: $color-text;
+    }
+  }
+  .movieBreadCrumbsLink {
+    margin-left: 15px;
+    position: relative;
+    &:hover {
+      color: $color-text;
+    }
+  }
+
+  .movieBreadCrumbsLink::before {
+    content: '■';
+    position: absolute;
+    left: -8px;
+    top: 2px;
+    font-size: 3px;
+  }
+}
