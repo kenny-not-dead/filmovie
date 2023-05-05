@@ -115,21 +115,53 @@
   border: none;
   border-radius: 8px;
   font-weight: 700;
+  color: $color-text-second;
   width: 109px;
   height: 40px;
   font-size: 15px;
+  position: relative;
+  cursor: pointer;
   p {
-    padding: 10px 40px;
+    padding: 10px 30px;
     color: $color-text-second;
     &::before {
       position: absolute;
+
       left: 0px;
       content: '';
+      top: 5px;
+      left: 5px;
       width: 24px;
       height: 32px;
-      background: url('../../../static/svgs/thunder.svg') no-repeat center;
+      background: url('../../../static/svgs/play.svg') no-repeat center;
     }
   }
+  &:hover {
+    background: $color-btn-hover;
+  }
+}
+
+.bookmark__btn {
+  background: $color-btn;
+  display: block;
+  border: none;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  &:hover {
+    background: $color-btn-hover;
+  }
+}
+
+.share__btn {
+  background: $color-btn;
+  display: block;
+  border: none;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
   &:hover {
     background: $color-btn-hover;
   }

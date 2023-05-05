@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { movieData } from '../movieData'
+import sound from '../../../static/svgs/sound.svg'
 import classes from './MovieDescription.module.scss'
 
 export const MovieDescription = () => {
@@ -7,19 +8,18 @@ export const MovieDescription = () => {
     <div className={classes.descriptionContainer}>
       <h1 className={classes.movieTitle}>{movieData.name}</h1>
       <div className={classes.movieParamsContainer}>
-        <a className={classes.movieParamsLink} href="/">
+        <Link to="/" className={classes.movieParamsLink}>
           {movieData.year}
-        </a>
+        </Link>
         <span className={classes.movieParams}> {movieData.movieLength}</span>
         <span className={classes.movieParams}> {movieData.ratingMPAA}</span>
         <br />
-        <a className={classes.movieParamsLink} href="/">
+        <Link className={classes.movieParamsLink} to="/">
           {movieData.country}
-        </a>
+        </Link>
         <ul className={classes.movieParamsList}>
           <li>
             <Link
-            {/*пока не решил как реализовать*/}
               to={`/movies/${movieData.genre[0]}`}
               className={classes.movieParamsLink}
             >
@@ -37,7 +37,19 @@ export const MovieDescription = () => {
             </Link>
           </li>
         </ul>
+        <div className={classes.movieQualityContainer}>
+          <span className={classes.movieQuality}>FullHD</span>
+          <div className={classes.iconContainer}>
+            <img
+              className={classes.movieSoundIcon}
+              src={sound}
+              alt="sound icon"
+            />
+          </div>
+          <span className={classes.movieLanguage}>Рус</span>
+        </div>
       </div>
+      <div className={classes.movieRateActorsContainer}></div>
     </div>
   )
 }

@@ -39,5 +39,35 @@
         font-size: 3px;
       }
     }
+    .movieQualityContainer {
+      height: 20px;
+      margin-top: -12px;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      .movieQuality {
+        background-color: $color-btn-hover;
+        color: $color-text;
+        font-weight: 500;
+        font-size: 13px;
+        width: 55px;
+        height: 20px;
+        border-radius: 4px;
+        padding: 3px 0px 0 0;
+        line-height: 16px;
+      }
+
+      .iconContainer {
+        padding-top: 2px;
+        .movieSoundIcon {
+          padding: 2px 0px 2px 6px;
+          width: 20px;
+        }
+      }
+      .movieLanguage {
+        font-weight: 500;
+      }
+    }
   }
 }

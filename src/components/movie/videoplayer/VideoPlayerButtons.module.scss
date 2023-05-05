@@ -3,17 +3,6 @@
 .videoPlayerButtonsContainer {
   display: flex;
   margin: 24px 0 0 0;
-  color: $color-text-second;
-  //padding: 0 12px;
-  .playBtn {
-    width: 109px;
-    height: 40px;
-    padding: 10px 12px;
-    color: $color-text-second;
-  }
-  .bookmarkBtn {
-    width: -120px;
-    height: 40px;
-    color: $color-text-second;
-  }
+
+  gap: 15px;
 }
