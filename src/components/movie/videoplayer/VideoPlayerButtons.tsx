@@ -6,9 +6,9 @@ import share from '../../../static/svgs/share.svg'
 export const VideoPlayerButtons = () => {
   return (
     <div className={classes.videoPlayerButtonsContainer}>
-      <Button className="play__btn" id="play" />
-      <Button className={classes.bookmarkBtn} src={bookmark} />
-      <Button src={share} />
+      <Button className="play__btn" id="Трейлер" />
+      <Button className="bookmark__btn" src={bookmark} />
+      <Button className="share__btn" src={share} />
     </div>
   )
 }
