@@ -1,5 +1,5 @@
 import { Button, BtnProps } from './Button'
-import phone from '../../../static/svgs/phone.svg'
+
 export default {
   title: 'UI/Button',
   component: Button,

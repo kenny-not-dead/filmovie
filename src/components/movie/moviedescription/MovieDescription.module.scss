@@ -1,0 +1,43 @@
+@import '../../../styles/variables.scss';
+
+.descriptionContainer {
+  width: 465px;
+  .movieTitle {
+    text-align: center;
+    font-size: 56px;
+    margin: 8px 0 20px;
+    padding: 0 12px;
+  }
+  .movieParamsContainer {
+    color: $color-text-second;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 0 12px;
+    margin: 0 0 24px 0;
+    text-align: center;
+
+    .movieParamsLink {
+      &:hover {
+        color: $color-text;
+      }
+    }
+    .movieParamsList {
+      display: inline-flex;
+      padding: 0 0 10px;
+
+      li {
+        list-style-type: none;
+        position: relative;
+        margin-left: 14px;
+      }
+
+      li::before {
+        content: '■';
+        position: absolute;
+        left: -8px;
+        top: 2px;
+        font-size: 3px;
+      }
+    }
+  }
+}

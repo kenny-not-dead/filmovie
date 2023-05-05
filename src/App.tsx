@@ -1,25 +1,25 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { MainLayout } from "./layouts/MainLayout";
-import { MainPage } from "./pages/MainPage/MainPage";
-import { FilmPage } from "./pages/FilmPage/FilmPage";
-import { CatalogPage } from "./pages/CatalogPage/CatalogPage";
-import { AdminPage } from "./pages/AdminPage/AdminPage";
-import { ActorPage } from "./pages/ActorPage/ActorPage";
-import { AuthPage } from "./pages/AuthPage/AuthPage";
-import { IntlProvider } from "react-intl";
-import { LOCALES } from "./i18n/locales";
-import { messages } from "./i18n/messages";
-import { useState } from "react";
-import { CatalogPageMain } from "./pages/CatalogPage/CatalogPageMain";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { MainLayout } from './layouts/MainLayout'
+import { MainPage } from './pages/MainPage/MainPage'
+import { MoviePage } from './pages/MoviePage/MoviePage'
+import { CatalogPage } from './pages/CatalogPage/CatalogPage'
+import { AdminPage } from './pages/AdminPage/AdminPage'
+import { ActorPage } from './pages/ActorPage/ActorPage'
+import { AuthPage } from './pages/AuthPage/AuthPage'
+import { IntlProvider } from 'react-intl'
+import { LOCALES } from './i18n/locales'
+import { messages } from './i18n/messages'
+import { useState } from 'react'
+import { CatalogPageMain } from './pages/CatalogPage/CatalogPageMain'
 
 function App() {
-  const locale = LOCALES.RUSSIAN;
-  const [currentLocale, setCurrentLocale] = useState(locale);
+  const locale = LOCALES.RUSSIAN
+  const [currentLocale, setCurrentLocale] = useState(locale)
 
   const hangeChange = ({ target: { value } }: any) => {
-    debugger;
-    setCurrentLocale(value);
-  };
+    debugger
+    setCurrentLocale(value)
+  }
 
   return (
     <IntlProvider
@@ -39,7 +39,7 @@ function App() {
             }
           >
             <Route path="/" index element={<MainPage />} />
-            <Route path="/catalog/:id" element={<FilmPage />} />
+            <Route path="/catalog/:id" element={<MoviePage />} />
             <Route path="/movies/*" element={<CatalogPage />} />
             <Route path="/movies/" element={<CatalogPageMain />} />
             <Route path="/admin" element={<AdminPage />} />
@@ -50,8 +50,8 @@ function App() {
         </Routes>
       </BrowserRouter>
     </IntlProvider>
-  );
+  )
 }
 
-export default App;
+export default App
 //<Route path="/catalog" element={<CatalogPage />} />
