@@ -5,6 +5,7 @@
   max-width: 1216px;
   padding: 24px 0;
   margin: 0 auto;
+  // position: relative;
   .playerContainer {
     width: 775px;
     padding: 0 32px 0 0;
@@ -12,56 +13,3 @@
     top: 10px;
   }
 }
-/*
-.slider__block {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-}
-
-.loyalty__buttons {
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-
-  padding: 10px;
-
-  gap: 20px;
-}
-
-@media (max-width: 769px) {
-  .loyalty__buttons {
-    width: 760px !important;
-    flex-direction: column;
-  }
-
-  .slider__block {
-    width: 760px;
-  }
-}
-
-@media (max-width: 641px) {
-  .loyalty__buttons {
-    width: 635px !important;
-    flex-direction: column;
-  }
-
-  .slider__block {
-    width: 630px;
-  }
-}
-
-@media (max-width: 481px) {
-  .loyalty__buttons {
-    width: 475px !important;
-    flex-direction: column;
-  }
-
-  .slider__block {
-    width: 470px;
-  }
-}
-*/

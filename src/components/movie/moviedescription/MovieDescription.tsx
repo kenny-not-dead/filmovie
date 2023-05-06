@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { movieData } from '../movieData'
 import sound from '../../../static/svgs/sound.svg'
+import { TextShow } from '../../UI/text/Textshow'
+import { MovieRatingActors } from './movieratingactors/MovieRatingActors'
 import classes from './MovieDescription.module.scss'
-
 export const MovieDescription = () => {
   return (
     <div className={classes.descriptionContainer}>
@@ -49,7 +50,9 @@ export const MovieDescription = () => {
           <span className={classes.movieLanguage}>Рус</span>
         </div>
       </div>
-      <div className={classes.movieRateActorsContainer}></div>
+      <MovieRatingActors />
+      <TextShow number="500" text={movieData.description} />
+      <div className={classes.movieDescription}> </div>
     </div>
   )
 }
