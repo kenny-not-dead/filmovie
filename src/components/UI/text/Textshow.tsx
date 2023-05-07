@@ -4,8 +4,9 @@ import classes from './Textshow.module.scss'
 export interface TextProps {
   number: any
   text: string
-  open?: string
-  close?: string
+  open?: string // активный текст при свернутом тексте
+  close?: string // активный текст при развернутом тексте
+  fontSize?: string // размер шрифта
 }
 
 export function TextShow(props: TextProps) {
@@ -21,7 +22,7 @@ export function TextShow(props: TextProps) {
 
   return (
     <div className={classes.wraper}>
-      <p>
+      <p style={{ fontSize: props.fontSize }}>
         {props.text.slice(0, number)}
         {number == props.number ? '...' : ''}{' '}
       </p>
