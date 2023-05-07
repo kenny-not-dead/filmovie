@@ -22,20 +22,20 @@ export const MovieRatingActor = ({
   return (
     <div className={classes.movieRatingActorContainer}>
       <Link to={link || '/'}>
-        <div className={classes.movieRatingActorContainer}>
+        <div className={classes.movieRatingImgContainer}>
           {rating ? (
             <p className={classes.movieRating}>{rating}</p>
           ) : (
-            <img className={classes.movieRatingActorImg} src={src} alt={alt} />
+            <img className={classes.movieActorImg} src={src} alt={alt} />
           )}
         </div>
         <div className={classes.movieRatingActorName}>
           {rating ? (
-            <p>
+            <p className={classes.movieRatingActorName}>
               <FormattedMessage id="Рейтинг Кинопоиска" />
             </p>
           ) : (
-            <p>{name}</p>
+            <p className={classes.movieRatingActorName}>{name}</p>
           )}
         </div>
       </Link>

@@ -14,22 +14,32 @@ export const movieData = {
     {
       id: 1,
       name: 'Франсуа Клюзе',
+      photo:
+        'https://sun6-22.userapi.com/s/v1/if1/2n4qVMV4lFfUsva-OFIswKrRDcoejUqmWY_8W5xbrBbZB0cFmdCLW2mBuusrawzExFzhKFCG.jpg?size=833x866&quality=96&crop=91,12,833,866&ava=1',
     },
     {
       id: 2,
       name: 'Омар Си',
+      photo:
+        'https://sun6-22.userapi.com/s/v1/if1/2n4qVMV4lFfUsva-OFIswKrRDcoejUqmWY_8W5xbrBbZB0cFmdCLW2mBuusrawzExFzhKFCG.jpg?size=833x866&quality=96&crop=91,12,833,866&ava=1',
     },
     {
       id: 3,
       name: 'Анн Ле Ни',
+      photo:
+        'https://sun6-22.userapi.com/s/v1/if1/2n4qVMV4lFfUsva-OFIswKrRDcoejUqmWY_8W5xbrBbZB0cFmdCLW2mBuusrawzExFzhKFCG.jpg?size=833x866&quality=96&crop=91,12,833,866&ava=1',
     },
     {
       id: 4,
       name: 'Одри Флеро',
+      photo:
+        'https://sun6-22.userapi.com/s/v1/if1/2n4qVMV4lFfUsva-OFIswKrRDcoejUqmWY_8W5xbrBbZB0cFmdCLW2mBuusrawzExFzhKFCG.jpg?size=833x866&quality=96&crop=91,12,833,866&ava=1',
     },
     {
       id: 5,
       name: 'Жозефин де Мо',
+      photo:
+        'https://sun6-22.userapi.com/s/v1/if1/2n4qVMV4lFfUsva-OFIswKrRDcoejUqmWY_8W5xbrBbZB0cFmdCLW2mBuusrawzExFzhKFCG.jpg?size=833x866&quality=96&crop=91,12,833,866&ava=1',
     },
   ],
 }
