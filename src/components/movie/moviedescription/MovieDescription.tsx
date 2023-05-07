@@ -51,8 +51,12 @@ export const MovieDescription = () => {
         </div>
       </div>
       <MovieRatingActors />
-      <TextShow number="500" text={movieData.description} />
-      <div className={classes.movieDescription}> </div>
+      <TextShow
+        number="500"
+        open="Детали о фильме"
+        close="Свернуть детали"
+        text={movieData.description}
+      />
     </div>
   )
 }

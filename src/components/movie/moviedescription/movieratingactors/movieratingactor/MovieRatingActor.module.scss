@@ -4,4 +4,35 @@
   width: 85px;
   font-size: 13px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .movieRatingImgContainer {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    border: 6px solid $color-btn-hover;
+    background-color: #73a32f;
+    margin: 0 auto 6px;
+    .movieRating {
+      font-weight: 700;
+      font-size: 15px;
+      margin: 30% auto;
+      padding: 50% auto;
+    }
+    .movieActorImg {
+      border-radius: 6px;
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .movieRatingActorName {
+    font-size: 12px;
+    font-weight: 700;
+    color: $color-text-second;
+    transition: 0.3s;
+    &:hover {
+      color: $color-text;
+    }
+  }
 }
