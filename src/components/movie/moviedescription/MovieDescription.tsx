@@ -19,24 +19,13 @@ export const MovieDescription = () => {
           {movieData.country}
         </Link>
         <ul className={classes.movieParamsList}>
-          <li>
-            <Link
-              to={`/movies/${movieData.genre[0]}`}
-              className={classes.movieParamsLink}
-            >
-              {movieData.genre[0]}
-            </Link>
-          </li>
-          <li>
-            <Link to="/movies" className={classes.movieParamsLink}>
-              {movieData.genre[1]}
-            </Link>
-          </li>
-          <li>
-            <Link to="/movies" className={classes.movieParamsLink}>
-              {movieData.genre[2]}
-            </Link>
-          </li>
+          {movieData.genre.slice(0, 3).map((el) => (
+            <li>
+              <Link to={`/movies/${el}`} className={classes.movieParamsLink}>
+                {el}
+              </Link>
+            </li>
+          ))}
         </ul>
         <div className={classes.movieQualityContainer}>
           <span className={classes.movieQuality}>FullHD</span>
@@ -52,6 +41,7 @@ export const MovieDescription = () => {
       </div>
       <MovieRatingActors />
       <TextShow
+        fontSize="15px"
         number="500"
         open="Детали о фильме"
         close="Свернуть детали"
