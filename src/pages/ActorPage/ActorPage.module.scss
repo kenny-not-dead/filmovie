@@ -14,7 +14,7 @@
 .infowrapper{
     display: flex;
     padding: 50px 0 30px;
-    div {
+    .infowrapperall {
         margin-left: 50px;
     }
     img{
@@ -73,6 +73,18 @@
     p{
         margin-top: 20px;
     }
+}
+
+.minibiowrapper{
+    margin-top: 20px;
+    h4{
+        margin-right: 5px;
+    }
+    div{
+        display: flex;
+        padding-top: 5px;
+    }
+
 }
 
 
