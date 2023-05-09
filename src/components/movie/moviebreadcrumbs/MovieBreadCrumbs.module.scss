@@ -29,4 +29,16 @@
     top: 2px;
     font-size: 3px;
   }
+  .movieBreadCrumbsName {
+    margin-left: 15px;
+    position: relative;
+  }
+
+  .movieBreadCrumbsName::before {
+    content: '■';
+    position: absolute;
+    left: -8px;
+    top: 2px;
+    font-size: 3px;
+  }
 }
