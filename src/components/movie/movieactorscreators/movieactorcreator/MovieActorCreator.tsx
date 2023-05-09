@@ -1,26 +1,23 @@
-import { Link } from 'react-router-dom'
-import { FormattedMessage } from 'react-intl'
-import classes from './MovieRatingActor.module.scss'
+import { movieData } from '../../movieData'
+import classes from './MovieActorCreator.module.scss'
 
-export interface MovieRatingActorProps {
+export interface MovieActorCreatorProps {
   id?: string
-  rating?: string
   src?: string
   alt?: string
   name?: string
   link?: string
 }
 
-export const MovieRatingActor = ({
+export const MovieActorCreator = ({
   id,
-  rating,
   src,
   alt,
   name,
   link,
-}: MovieRatingActorProps) => {
-  return (
-    <div className={classes.movieRatingActorContainer}>
+}: MovieActorCreatorProps) => {
+  /*return (
+    <div className={classes.movieActorCreatorContainer}>
       <Link className={classes.linkContainer} to={link || '/'}>
         <div className={classes.movieRatingImgContainer}>
           {rating ? (
@@ -40,5 +37,5 @@ export const MovieRatingActor = ({
         </div>
       </Link>
     </div>
-  )
+  )*/
 }
