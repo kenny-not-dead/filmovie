@@ -1,6 +1,39 @@
+@import '../../../../styles/variables.scss';
+
 .movieActorCreatorContainer {
   width: 88px;
   height: 144px;
   display: flex;
+
   flex-direction: column;
+
+  .linkContainer {
+    color: $color-text-second;
+
+    &:hover {
+      color: $color-text;
+    }
+    .movieActorCreatorImgContainer {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      margin: 0 auto 6px;
+      padding: 0 24px 0 0;
+
+      .movieActorCreatorImg {
+        border-radius: 50%;
+        width: 88px;
+        height: 88px;
+      }
+    }
+    .movieRatingActorName {
+      font-size: 12px;
+      font-weight: 700;
+
+      transition: 0.3s;
+      &:hover {
+        color: $color-text;
+      }
+    }
+  }
 }
