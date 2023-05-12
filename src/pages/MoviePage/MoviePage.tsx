@@ -6,6 +6,7 @@ import { Navigation } from 'swiper'
 import { Movie } from '../../components/movie/Movie'
 import { Poster } from '../../components/poster/Poster'
 import { Title } from '../../components/title/Title'
+import { MovieActorsCreators } from '../../components/movie/movieactorscreators/MovieActorsCreators'
 import { MovieBreadCrumbs } from '../../components/movie/moviebreadcrumbs/MovieBreadCrumbs'
 
 import classes from './MoviePage.module.scss'
@@ -88,7 +89,6 @@ const posters_s = [
 export const MoviePage = () => {
   const [width, setWidth] = useState(window.innerWidth)
   const [sCount, setSCount] = useState(7)
-
   const [sGap, setSGap] = useState(25)
 
   useEffect(() => {
@@ -96,23 +96,18 @@ export const MoviePage = () => {
     window.addEventListener('resize', handleResizeWindow)
     if (width <= 480 && width >= 300) {
       setSCount(3)
-
       setSGap(27)
     } else if (width <= 640 && width >= 481) {
       setSCount(4)
-
       setSGap(25)
     } else if (width <= 768 && width >= 641) {
       setSCount(5)
-
       setSGap(15)
     } else if (width <= 1280 && width >= 768) {
       setSCount(5)
-
       setSGap(20)
     } else {
       setSCount(7)
-
       setSGap(20)
     }
     console.log(width)
@@ -155,6 +150,8 @@ export const MoviePage = () => {
           })}
         </Swiper>
       </div>
+      <Title top={false} arrow={false} title={`Актеры и создатели`} />
+      <MovieActorsCreators />
       <MovieBreadCrumbs showHomeLink={true} showMovieName={true} />
     </div>
   )
