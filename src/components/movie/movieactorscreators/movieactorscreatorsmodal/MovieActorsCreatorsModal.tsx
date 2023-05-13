@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 
 export const MovieActorsCreatorsModal: React.FC = () => {
   const [showModal, setShowModal] = useState(false)
+  const [modalTop, setModalTop] = useState(40)
 
   const handleOpenModal = () => {
     setShowModal(true)
@@ -13,27 +14,30 @@ export const MovieActorsCreatorsModal: React.FC = () => {
   }
 
   useEffect(() => {
-    const modalRoot = document.getElementById('modal-root')!
-    modalRoot.classList.add('Overlay')
+    const handleScroll = () => {
+      setModalTop(window.pageYOffset + 40)
+    }
+
+    window.addEventListener('scroll', handleScroll)
 
     return () => {
-      modalRoot.classList.remove('Overlay')
+      window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
   return (
-    <div>
+    <>
       <div>
         <button onClick={handleOpenModal}>Trigger Modal</button>
       </div>
       {showModal &&
         createPortal(
-          <div className="Modal">
+          <div className="Modal" style={{ top: modalTop }}>
             <p>Modal text!</p>
             <button onClick={handleCloseModal}>Close Modal</button>
           </div>,
           document.getElementById('modal-root')!
         )}
-    </div>
+    </>
   )
 }
