@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
+import classes from './MovieActorsCreatorsModal.module.scss'
 
 export const MovieActorsCreatorsModal: React.FC = () => {
   const [showModal, setShowModal] = useState(false)
@@ -28,13 +29,15 @@ export const MovieActorsCreatorsModal: React.FC = () => {
   return (
     <>
       <div>
-        <button onClick={handleOpenModal}>Trigger Modal</button>
+        <button className={classes.modalTriggerBtn} onClick={handleOpenModal}>
+          Еще
+        </button>
       </div>
       {showModal &&
         createPortal(
-          <div className="Modal" style={{ top: modalTop }}>
+          <div className={classes.modal} style={{ top: modalTop }}>
             <p>Modal text!</p>
-            <button onClick={handleCloseModal}>Close Modal</button>
+            <button onClick={handleCloseModal}>К фильму</button>
           </div>,
           document.getElementById('modal-root')!
         )}

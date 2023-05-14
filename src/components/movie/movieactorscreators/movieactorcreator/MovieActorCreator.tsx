@@ -26,7 +26,7 @@ export const MovieActorCreator = ({
         </div>
         <div className={classes.movieActorCreatorName}>
           <p className={classes.movieActorCreatorName}>{name}</p>
-          <p className={classes.movieActorCreatorName}>
+          <p className={classes.actorOrCreator}>
             <FormattedMessage id={id || 'Актер'} />
           </p>
         </div>

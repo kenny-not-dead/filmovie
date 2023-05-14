@@ -26,14 +26,13 @@
         height: 88px;
       }
     }
-    .movieRatingActorName {
-      font-size: 12px;
-      font-weight: 700;
-
-      transition: 0.3s;
-      &:hover {
-        color: $color-text;
-      }
+    .movieActorCreatorName {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .actorOrCreator {
+      font-size: 13px;
+      font-weight: normal;
     }
   }
 }
