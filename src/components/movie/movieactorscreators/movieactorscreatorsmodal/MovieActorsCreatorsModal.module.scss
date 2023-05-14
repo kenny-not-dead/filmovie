@@ -1,13 +1,34 @@
-.Modal {
+@import '../../../../styles/variables.scss';
+.modalTriggerBtn {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background-color: $color-btn;
+  font-size: 15px;
+  font-weight: 700;
+  color: $color-text-second;
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.modalTriggerBtn:hover {
+  background-color: $color-btn-hover;
+  color: $color-text;
+  transition: none;
+}
+
+.modal {
   position: absolute;
   top: 40px;
   left: 40px;
   right: 40px;
   bottom: 40px;
-  background-color: papayawhip;
+  background-color: black;
+  opacity: 0.8;
+  z-index: 5;
 }
 
-.Overlay {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
