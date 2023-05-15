@@ -14,6 +14,11 @@ export const MovieActorsCreatorsModal: React.FC = () => {
     setShowModal(false)
   }
 
+  const handleScroll = () => {
+    const buttonHeight = 88 // Update with the actual button height
+    setModalTop(window.pageYOffset + buttonHeight + 40)
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       setModalTop(window.pageYOffset + 40)
@@ -36,8 +41,8 @@ export const MovieActorsCreatorsModal: React.FC = () => {
       {showModal &&
         createPortal(
           <div className={classes.modal} style={{ top: modalTop }}>
-            <p>Modal text!</p>
             <button onClick={handleCloseModal}>К фильму</button>
+            <p>Modal text!</p>
           </div>,
           document.getElementById('modal-root')!
         )}
