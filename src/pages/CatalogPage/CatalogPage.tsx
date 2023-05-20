@@ -8,7 +8,7 @@ import { Input } from "../../components/UI/input/Input";
 import search from "./../../static/svgs/search.svg";
 import { RangeFilter } from "../../components/UI/Filter/RangeFilter";
 
-export function CatalogPage() {
+export function CatalogPage(props: any) {
   const posters = [
     {
       title: "Губка боб",
