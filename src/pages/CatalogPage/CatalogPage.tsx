@@ -76,15 +76,31 @@ export function CatalogPage(props: any) {
     },
   ];
 
-  const [catalog, setCatalog] = useState(posters);
+  const [catalog, setCatalog] = useState(props.newCatalogData);
   const [selectedSort, setSelectedSort] = useState("like");
 
   const sortCatalog = (sort: string) => {
     setSelectedSort(sort);
     if (sort === "stars") {
-      setCatalog([...catalog].sort((a, b) => a.score.localeCompare(b.score)));
+      setCatalog(
+        [...catalog].sort((a, b) => a.filmGrade.localeCompare(b.filmGrade))
+      );
     } else if (sort === "abc") {
-      setCatalog([...catalog].sort((a, b) => a.title.localeCompare(b.title)));
+      setCatalog(
+        [...catalog].sort((a, b) =>
+          a.filmLang[0].filmName.localeCompare(b.filmLang[0].filmName)
+        )
+      );
+    } else if (sort === "like") {
+      setCatalog(
+        [...catalog].sort((a, b) =>
+          a.filmTotalGrade.localeCompare(b.filmTotalGrade)
+        )
+      );
+    } else if (sort === "date") {
+      setCatalog(
+        [...catalog].sort((a, b) => a.filmDate.localeCompare(b.filmDate))
+      );
     }
   };
 
@@ -104,25 +120,25 @@ export function CatalogPage(props: any) {
   };
 
   const onFilter = () => {
-    let newValue = posters
-      .filter((i) => +i.score >= rating)
-      .filter((i) => i.estimation >= score);
+    let newValue = props.newCatalogData
+      .filter((i: any) => +i.filmGrade >= rating)
+      .filter((i: any) => +i.filmTotalGrade >= score);
 
     if (valuefind.length != 0 || valuefindActor.length != 0) {
       setCatalog(
         newValue
-          .filter((item) => {
+          .filter((item: any) => {
             if (
-              item.title
+              item.directors.filmName // Тут надо по режиссёрам
                 .toLocaleLowerCase()
                 .includes(valuefind.toLocaleLowerCase())
             ) {
               return true;
             }
           })
-          .filter((item) => {
+          .filter((item: any) => {
             if (
-              item.seasons
+              item.filmTotalGrade //Тут надо по актерам
                 .toLocaleLowerCase()
                 .includes(valuefindActor.toLocaleLowerCase())
             ) {
@@ -159,6 +175,7 @@ export function CatalogPage(props: any) {
     setValuefindActor("");
     setSearchactive(false);
     setSearchactive2(false);
+    setCatalog(props.newCatalogData);
   };
 
   const [searchactive, setSearchactive] = useState(false);
@@ -291,16 +308,16 @@ export function CatalogPage(props: any) {
 
       <div className={classes.slider__block}>
         <div className={mainclasses.catalog}>
-          {catalog.map((slide, index) => {
+          {catalog.map((slide: any) => {
             return (
               <Poster
                 size="s"
-                title={slide.title}
-                url={slide.url}
-                score={slide.score}
-                info={slide.info}
-                seasons={slide.seasons}
-                key={index}
+                title={slide.filmLang[0].filmName}
+                url={slide.filmPicture}
+                score={slide.filmGrade}
+                info={slide.filmDate + ", " + slide.countries[0].name}
+                seasons={slide.filmLang[0].filmTime}
+                key={slide.id}
               />
             );
           })}
