@@ -4,6 +4,7 @@ import Point from "../../components/UI/elem/Point";
 import { Button } from "../../components/UI/button/Button";
 import { Title } from "../../components/title/Title";
 import { TextShow } from "../../components/UI/text/Textshow";
+import { Link } from "react-router-dom";
 
 let actors = [
   {
@@ -37,6 +38,13 @@ let actors = [
         rating: 7.9,
         poster: "https://kinopoiskapiunofficial.tech/images/posters/kp/309.jpg",
       },
+      {
+        id: 309,
+        name: "Бетмен",
+        year: 2012,
+        rating: 8.9,
+        poster: "https://kinopoiskapiunofficial.tech/images/posters/kp/309.jpg",
+      },
     ],
   },
 ];
@@ -52,7 +60,9 @@ export function ActorPage() {
           <img src={actors[0].personPicture} alt="Photo" />
           <div className={classes.infowrapperall}>
             <h2>{actors[0].personLang[0].personName}</h2>
-            <p>{actors[0].personLang[1].personName}</p>
+            <p>
+              {actors[0].personLang[1].personName}, {actors[0].age} лет
+            </p>
             <div className={classes.minibiowrapper}>
               <div>
                 <h4>Карьера: </h4>
@@ -60,9 +70,7 @@ export function ActorPage() {
               </div>
               <div>
                 <h4>Родился: </h4>
-                <p>
-                  {actors[0].birthDate}, {actors[0].age} лет
-                </p>
+                <p>{actors[0].birthDate}</p>
               </div>
               <div>
                 <h4>Рост: </h4>
@@ -74,8 +82,6 @@ export function ActorPage() {
 
         <div className={classes.nav}>
           <a href="#film">{actors[0].films.length} фильма</a>
-          <Point />
-          <a href="#bio">Биография</a>
         </div>
         <div id="film">
           <div className={classes.listlabel}>
@@ -91,13 +97,12 @@ export function ActorPage() {
                 <p>Рейтинг Кинопоиск: {item.rating}</p>
               </div>
               <div className={classes.buttonwrapper}>
-                <Button id="Смотреть" />
+                <Link to={"/catalog/1"}>
+                  <Button id="Смотреть" />
+                </Link>
               </div>
             </div>
           ))}
-          <div className={classes.bioWrapper} id="bio">
-            <Title arrow={false} title={"Биография"} />
-          </div>
         </div>
       </div>
     </>

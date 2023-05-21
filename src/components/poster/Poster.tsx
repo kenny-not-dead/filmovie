@@ -30,7 +30,7 @@ export const Poster = ({
 }: PosterProps) => {
   return size === "s" ? (
     <div data-testid={"poster-s"} className={classes.container__s}>
-      <NavLink to="catalog/1" replace>
+      <NavLink to="/catalog/1" replace>
         <div className={classes.poster}>
           <img src={url} alt={title} />
         </div>
@@ -54,7 +54,7 @@ export const Poster = ({
     </div>
   ) : size === "m" ? (
     <div data-testid={"poster-m"} className={classes.container__m}>
-      <NavLink to="catalog/1" replace>
+      <NavLink to="/catalog/1" replace>
         <img src={url} className={classes.slide__image} alt={title} />
         <img src={number} className={classes.number} alt={title} />
         <div className={classes.shadow}></div>
@@ -76,7 +76,7 @@ export const Poster = ({
           : { transform: "translateX(-100%)" }
       }
     >
-      <NavLink to="catalog/1" replace>
+      <NavLink to="/catalog/1" replace>
         <div className={classes.info}>
           <h1 className={classes.name}>{title}</h1>
           <span className={classes.description}>{description}</span>
