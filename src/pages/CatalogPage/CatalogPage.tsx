@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Poster } from "../../components/poster/Poster";
 import classes from "./../MainPage/MainPage.module.scss";
 import mainclasses from "./CatalogPage.module.scss";
-import { Select } from "../../components/catalog/Select";
+import { Selectsort } from "../../components/catalog/Selectsort";
 import { FilterSelect } from "../../components/UI/Filter/FilterSelect";
 import { Input } from "../../components/UI/input/Input";
 import search from "./../../static/svgs/search.svg";
@@ -194,7 +194,7 @@ export function CatalogPage(props: any) {
         >
           <path d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
         </svg>
-        <Select
+        <Selectsort
           sortCatalog={sortCatalog}
           value={selectedSort}
           option={[

@@ -19,21 +19,25 @@ export const catalogData = [
     genres: [
             {
                 id: 1,
-                name: "драма"
+                name: "драма",
+                value: "drama"
             },
             {
                 id: 2,
-                name: "комедия"
+                name: "комедия",
+                value: "comedy"
             },
             {
                 id: 3,
-                name: "биография"
+                name: "биография",
+                value: "bio"
             }
         ],
         countries: [
             {
                 id: 1,
-                name: "Франция"
+                name: "Франция",
+                value: 'FR'
             }
         ],
         directors: [
@@ -103,23 +107,17 @@ export const catalogData = [
             }
         ],
     genres: [
-            {
-                id: 1,
-                name: "драма"
-            },
-            {
-                id: 2,
-                name: "комедия"
-            },
-            {
-                id: 3,
-                name: "биография"
-            }
+        {
+            id: 1,
+            name: "Боевики",
+            value: "boeviki"
+        }
         ],
         countries: [
             {
                 id: 1,
-                name: "Россия"
+                name: "Россия",
+                value: 'RU'
             }
         ],
         directors: [
