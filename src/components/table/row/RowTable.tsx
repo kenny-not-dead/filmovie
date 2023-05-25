@@ -1,27 +1,27 @@
-import classes from "./RowTable.module.scss";
-import save from "../../../static/svgs/save.svg";
-import del from "../../../static/svgs/delete.svg";
-import { useState } from "react";
-import Select from "react-select";
+import classes from './RowTable.module.scss';
+import save from '../../../static/svgs/save.svg';
+import del from '../../../static/svgs/delete.svg';
+import { useState } from 'react';
+import Select from 'react-select';
+import { useAppDispatch } from '../../../hooks/redux-hooks';
+import { removeFilm, updateFilm } from '../../../store/slices/filmSlice';
 
 interface RowTableProps {
-  values: Array<String>;
-  deleteItem: any;
-  save: any;
+  film: Film;
 }
 
-export function RowTable(props: any) {
+export function RowTable({film}: RowTableProps) {
   const [formData, setFormData] = useState({
-    id: props.values.id,
-    name: props.values.filmLang[0].filmName,
-    years: props.values.filmDate,
-    actors: props.values.actors.map((i: any) => i.name).join(", "),
-    genres: props.values.genres.map((i: any) => {
-      return { label: i.name, value: i.value };
+    id: film.id,
+    name: film.filmLang[0].filmName,
+    years: film.filmDate,
+    actors: film.actors.map((i: any) => i.name).join(', '),
+    genres: film.genres.map((i: any) => {
+      return { id: i.id, label: i.label, value: i.value };
     }),
-    countries: props.values.countries.map((i: any) => {
-      return { label: i.name, value: i.value };
-    }),
+    countries: film.countries.map((i: any) => {
+      return { id: i.id, label: i.label, value: i.value };
+    })
   });
 
   const handleInputChange = (e: any) => {
@@ -34,77 +34,108 @@ export function RowTable(props: any) {
   );
 
   const optionList = [
-    { value: "drama", label: "Драма" },
-    { value: "boeviki", label: "Боевики" },
-    { value: "comedy", label: "комедия" },
-    { value: "bio", label: "биография" },
+    { id: 1, value: 'drama', label: 'Драма' },
+    { id: 4, value: 'boeviki', label: 'Боевики' },
+    { id: 2, value: 'comedy', label: 'комедия' },
+    { id: 3, value: 'bio', label: 'биография' }
   ];
 
   const optionListCountry = [
-    { value: "RU", label: "Россия" },
-    { value: "EN", label: "Англия" },
-    { value: "FR", label: "Франция" },
-    { value: "CH", label: "Китай" },
-    { value: "USA", label: "США" },
+    { id: 1, value: 'RU', label: 'Россия' },
+    { id: 2, value: 'EN', label: 'Англия' },
+    { id: 3, value: 'FR', label: 'Франция' },
+    { id: 4, value: 'CH', label: 'Китай' },
+    { id: 5, value: 'USA', label: 'США' }
   ];
 
   function handleSelect(data: any) {
     setSelectedOptions(data);
+    setFormData({ ...formData, genres: data });
   }
 
   function handleSelectCountries(data: any) {
     setSelectedOptionsCountries(data);
+    setFormData({ ...formData, actors: data });
   }
+
+  const dispatch = useAppDispatch();
 
   return (
     <div className={classes.container}>
-      <form name="catalog">
+      <form name='catalog'>
         <div className={classes.row}>
           <input
-            name="id"
+            className={classes.id}
+            name='id'
             value={formData.id}
-            type="text"
+            type='text'
             onChange={handleInputChange}
           />
 
           <input
-            name="name"
+            className={classes.name}
+            name='name'
             value={formData.name}
-            type="text"
+            type='text'
             onChange={handleInputChange}
           />
 
           <input
-            name="years"
+            className={classes.year}
+            name='years'
             value={formData.years}
-            type="text"
+            type='text'
             onChange={handleInputChange}
           />
           <Select
+            className={classes.genre}
             options={optionList}
-            placeholder="Жанры"
+            placeholder='Жанры'
             value={selectedOptions}
             onChange={handleSelect}
             isSearchable={true}
             isMulti
           />
           <Select
+            className={classes.country}
             options={optionListCountry}
-            placeholder="Страна"
+            placeholder='Страна'
             value={selectedOptionsCountries}
             onChange={handleSelectCountries}
             isSearchable={true}
           />
 
-          <input name="actors" value={formData.actors} type="text" />
+          <input
+            className={classes.actors}
+            name='actors'
+            value={formData.actors}
+            onChange={() => {}}
+            type='text'
+          />
         </div>
 
         <div className={classes.buttons}>
-          <img src={save} alt="save" onClick={(e) => props.save(e, formData)} />
+          <img
+            src={save}
+            alt='save'
+            onClick={() => {
+              dispatch(
+                updateFilm({
+                  film: formData
+                })
+              );
+            }}
+          />
           <img
             src={del}
-            alt="delete"
-            onClick={(e) => props.deleteItem(e, props.values.id)}
+            alt='delete'
+            onClick={() => {
+              dispatch(
+                removeFilm({
+                  film: formData
+                })
+              );
+            }}
           />
         </div>
       </form>

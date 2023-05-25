@@ -1,13 +1,9 @@
-import Admin from "../../components/admin/Admin";
+import Admin from '../../components/admin/Admin';
 
-export function AdminPage(props: any) {
+export function AdminPage() {
   return (
     <>
-      <Admin
-        newCatalogData={props.newCatalogData}
-        deleteItem={props.deleteItem}
-        save={props.save}
-      />
+      <Admin />
     </>
   );
 }

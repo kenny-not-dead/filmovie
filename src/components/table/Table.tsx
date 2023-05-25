@@ -1,18 +1,18 @@
-import { Input } from "../UI/input/Input";
-import classes from "./Table.module.scss";
-import { HeadTable } from "./head/HeadTable";
-import { RowTable } from "./row/RowTable";
-import search from "./../../static/svgs/search.svg";
-import { useEffect, useState } from "react";
+import { Input } from '../UI/input/Input';
+import classes from './Table.module.scss';
+import { HeadTable } from './head/HeadTable';
+import { RowTable } from './row/RowTable';
+import search from './../../static/svgs/search.svg';
+import { useEffect, useState } from 'react';
+import { useAppSelector } from '../../hooks/redux-hooks';
 
 interface TableProps {
   values: any;
-  deleteItem: any;
-  save: any;
 }
 
-function Table({ values, deleteItem, save }: TableProps) {
-  const [valuefindName, setValuefindName] = useState("");
+function Table({ values }: TableProps) {
+  const filmes = useAppSelector(state => state.film.films);
+  const [valuefindName, setValuefindName] = useState('');
   const [newValues, setNewValues] = useState(values);
 
   const onFilter = () => {
@@ -35,7 +35,7 @@ function Table({ values, deleteItem, save }: TableProps) {
   };
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.placeholder == "Поиск по названию") {
+    if (e.target.placeholder == 'Поиск по названию') {
       setValuefindName(e.target.value);
       onFilter();
     }
@@ -45,28 +45,25 @@ function Table({ values, deleteItem, save }: TableProps) {
     onFilter();
   }, [valuefindName]);
 
+  useEffect(() => {
+    setNewValues([...filmes]);
+  }, [filmes]);
+
   return (
     <div className={classes.table}>
       <Input
-        placeholder="Поиск по названию"
-        id=""
+        placeholder='Поиск по названию'
+        id=''
         icon={search}
         value={valuefindName}
-        onChange={(e) => inputHandler(e)}
+        onChange={e => inputHandler(e)}
       />
       <HeadTable
-        values={["ID", "Название", "Год", "Жанры", "Страны", "Актеры"]}
+        values={['ID', 'Название', 'Год', 'Жанры', 'Страны', 'Актеры']}
       />
       <div className={classes.content}>
         {newValues.map((value: any, index: number) => {
-          return (
-            <RowTable
-              values={value}
-              key={index}
-              deleteItem={deleteItem}
-              save={save}
-            />
-          );
+          return <RowTable film={value} key={index} />;
         })}
       </div>
     </div>

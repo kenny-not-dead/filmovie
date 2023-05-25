@@ -7,3 +7,17 @@ declare type Slide = {
 	seasons?: string;
 	number?: string;
 }
+
+declare type Film = {
+  id: number;
+  filmLang: FilmLang[];
+  filmDate: string;
+  genres: Array<Object>;
+  countries: Array<Object>;
+  actors: Array<Object>;
+};
+
+declare type FilmLang = {
+	filmName: string;
+	filmTime: string;
+}

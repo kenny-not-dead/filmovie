@@ -1,12 +1,10 @@
-import React from "react";
-import Table from "../table/Table";
+import Table from '../table/Table';
+import { useAppSelector } from '../../hooks/redux-hooks';
 
-export default function Admin(props: any) {
+export default function Admin() {
+  const films = useAppSelector(state => state.film.films);
+
   return (
-    <Table
-      values={props.newCatalogData}
-      deleteItem={props.deleteItem}
-      save={props.save}
-    />
+    <Table values={films} />
   );
 }

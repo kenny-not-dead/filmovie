@@ -14,29 +14,6 @@ import { CatalogPageMain } from "./pages/CatalogPage/CatalogPageMain";
 import { catalogData } from "./store/data";
 
 function App() {
-  let newCatalogData = catalogData;
-
-  const [newData, setNewData] = useState(newCatalogData);
-
-  const deleteItem = (e: any, el: any) => {
-    e.preventDefault();
-    let newArr = newData.filter((i) => i.id !== el);
-    setNewData(newArr);
-  };
-
-  const save = (e: any, formdata: any) => {
-    e.preventDefault();
-    debugger;
-    /*
-    const updatedItems = newData.map((item) =>
-      item.id == formdata.id
-        ? (item.filmLang[0].filmName = formdata.name) // ошибка тут
-        : item
-    );
-    setNewData(updatedItems);
-     */
-  };
-
   const locale = LOCALES.RUSSIAN;
   const [currentLocale, setCurrentLocale] = useState(locale);
 
@@ -65,17 +42,13 @@ function App() {
             <Route path="/catalog/:id" element={<MoviePage />} />
             <Route
               path="/movies/*"
-              element={<CatalogPage newCatalogData={newData} />}
+              element={<CatalogPage newCatalogData={catalogData} />}
             />
             <Route path="/movies/" element={<CatalogPageMain />} />
             <Route
               path="/admin"
               element={
-                <AdminPage
-                  newCatalogData={newData}
-                  deleteItem={deleteItem}
-                  save={save}
-                />
+                <AdminPage/>
               }
             />
             <Route path="/auth" element={<AuthPage />} />
