@@ -26,7 +26,9 @@ export function Subfilter({
     if (!activeitem.includes(el.target.textContent)) {
       activeitem.push(el.target.textContent);
     } else {
-      setActiveitem(activeitem.filter((item) => item != el.target.textContent));
+      setActiveitem(
+        activeitem.filter((item) => item !== el.target.textContent)
+      );
     }
   };
 
@@ -40,9 +42,11 @@ export function Subfilter({
           onClick={activeFilter}
         >
           {logo ? <img src={logo} /> : ""}
-          <div className={className == "textlist" ? classes.secondwrapper : ""}>
+          <div
+            className={className === "textlist" ? classes.secondwrapper : ""}
+          >
             <p>{text}</p>
-            {className == "textlist" ? (
+            {className === "textlist" ? (
               active ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

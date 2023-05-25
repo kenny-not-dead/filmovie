@@ -24,7 +24,7 @@ const filmSlice = createSlice({
     removeFilm(state, action) {
       let index = -1;
       for (let i = 0; i < state.films.length; i++) {
-        if (state.films[i].id == action.payload.film.id) index = i;
+        if (state.films[i].id === action.payload.film.id) index = i;
       }
       state.films.splice(index, 1)
     }

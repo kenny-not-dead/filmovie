@@ -1,9 +1,6 @@
-import { useState } from "react";
 import classes from "./ActorPage.module.scss";
-import Point from "../../components/UI/elem/Point";
 import { Button } from "../../components/UI/button/Button";
 import { Title } from "../../components/title/Title";
-import { TextShow } from "../../components/UI/text/Textshow";
 import { Link } from "react-router-dom";
 
 let actors = [

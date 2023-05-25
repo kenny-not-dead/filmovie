@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import classes from "./FilterSelect.module.scss";
 import { Chevronup } from "../elem/Chevronup";
 import { Chevrondown } from "../elem/Chevrondown";
@@ -168,7 +168,7 @@ export function FilterSelect(props: FilterSelectType) {
     },
   ];
 
-  if (props.name == "Жанры") {
+  if (props.name === "Жанры") {
     data = [...genres];
   } else {
     data = [...country];

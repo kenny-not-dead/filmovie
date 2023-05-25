@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { movieData } from "../../movieData";
 import classes from "./MovieActorCreator.module.scss";
 import { FormattedMessage } from "react-intl";
 

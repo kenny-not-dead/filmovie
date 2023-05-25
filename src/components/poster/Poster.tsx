@@ -3,7 +3,7 @@ import bookmark from "../../static/svgs/bookmark.svg";
 import star from "../../static/svgs/star.svg";
 import block from "../../static/svgs/block.svg";
 import magic from "../../static/svgs/magic.svg";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 interface PosterProps {
   size: "s" | "m" | "l";

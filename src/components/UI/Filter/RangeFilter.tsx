@@ -34,7 +34,7 @@ export function RangeFilter({
       <div className={secondclasses.subwrapper} onClick={showmenu}>
         <div>
           <h4>{label}</h4>
-          <p> {value == 100000 ? "+" + value : "от" + " " + value} </p>
+          <p> {value === 100000 ? "+" + value : "от" + " " + value} </p>
         </div>
         {chevron ? <Chevronup /> : <Chevrondown />}
       </div>

@@ -9,73 +9,6 @@ import search from "./../../static/svgs/search.svg";
 import { RangeFilter } from "../../components/UI/Filter/RangeFilter";
 
 export function CatalogPage(props: any) {
-  const posters = [
-    {
-      title: "Губка боб",
-      url: "https://thumbs.dfs.ivi.ru/storage2/contents/1/1/24e317e380f8a6bf033e25c3b47cc9.jpg/234x360/?q=85",
-      score: "7.9",
-      estimation: 100,
-      info: "1999-2021, США, Фентези",
-      seasons: "13 сезонов",
-    },
-    {
-      title: "Титаник",
-      url: "https://thumbs.dfs.ivi.ru/storage23/contents/8/5/d8d2fea60b6a57adb2d25a76499f58.jpg/234x360/?q=85",
-      score: "8.6",
-      estimation: 1000,
-      info: "2012, Россия, Документальные",
-      seasons: "1 сезон",
-    },
-    {
-      title: "Друзья",
-      url: "https://thumbs.dfs.ivi.ru/storage8/contents/e/6/071e0668ff2d48216b7967891ca39f.jpg/234x360/?q=85",
-      score: "9.1",
-      estimation: 2000,
-      info: "1994-2004, США, Комедийные",
-      seasons: "10 сезонов",
-    },
-    {
-      title: "Губка боб",
-      url: "https://thumbs.dfs.ivi.ru/storage2/contents/1/1/24e317e380f8a6bf033e25c3b47cc9.jpg/234x360/?q=85",
-      score: "7.9",
-      estimation: 3000,
-      info: "1999-2021, США, Фентези",
-      seasons: "13 сезонов",
-    },
-    {
-      title: "Титаник",
-      url: "https://thumbs.dfs.ivi.ru/storage23/contents/8/5/d8d2fea60b6a57adb2d25a76499f58.jpg/234x360/?q=85",
-      score: "8.6",
-      estimation: 4000,
-      info: "2012, Россия, Документальные",
-      seasons: "1 сезон",
-    },
-    {
-      title: "Друзья",
-      url: "https://thumbs.dfs.ivi.ru/storage8/contents/e/6/071e0668ff2d48216b7967891ca39f.jpg/234x360/?q=85",
-      score: "9.1",
-      estimation: 5000,
-      info: "1994-2004, США, Комедийные",
-      seasons: "10 сезонов",
-    },
-    {
-      title: "Титаник",
-      url: "https://thumbs.dfs.ivi.ru/storage23/contents/8/5/d8d2fea60b6a57adb2d25a76499f58.jpg/234x360/?q=85",
-      score: "8.6",
-      estimation: 7000,
-      info: "2012, Россия, Документальные",
-      seasons: "1 сезон",
-    },
-    {
-      title: "Друзья",
-      url: "https://thumbs.dfs.ivi.ru/storage8/contents/e/6/071e0668ff2d48216b7967891ca39f.jpg/234x360/?q=85",
-      score: "9.1",
-      estimation: 10000000,
-      info: "1994-2004, США, Комедийные",
-      seasons: "10 сезонов",
-    },
-  ];
-
   const [catalog, setCatalog] = useState(props.newCatalogData);
   const [selectedSort, setSelectedSort] = useState("like");
 
@@ -110,10 +43,10 @@ export function CatalogPage(props: any) {
   const [valuefindActor, setValuefindActor] = useState("");
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.placeholder == "Поиск по режиссёру") {
+    if (e.target.placeholder === "Поиск по режиссёру") {
       setValuefind(e.target.value);
       onFilter();
-    } else if (e.target.placeholder == "Поиск по актёру") {
+    } else if (e.target.placeholder === "Поиск по актёру") {
       setValuefindActor(e.target.value);
       onFilter();
     }
@@ -124,25 +57,29 @@ export function CatalogPage(props: any) {
       .filter((i: any) => +i.filmGrade >= rating)
       .filter((i: any) => +i.filmTotalGrade >= score);
 
-    if (valuefind.length != 0 || valuefindActor.length != 0) {
+    if (valuefind.length !== 0 || valuefindActor.length !== 0) {
       setCatalog(
         newValue
           .filter((item: any) => {
-            if (
-              item.directors.filmName // Тут надо по режиссёрам
-                .toLocaleLowerCase()
-                .includes(valuefind.toLocaleLowerCase())
-            ) {
-              return true;
+            for (let i = 0; i < item.directors.length; i++) {
+              if (
+                item.directors[i] //по режиссёрам
+                  .toLocaleLowerCase()
+                  .includes(valuefind.toLocaleLowerCase())
+              ) {
+                return true;
+              }
             }
           })
           .filter((item: any) => {
-            if (
-              item.filmTotalGrade //Тут надо по актерам
-                .toLocaleLowerCase()
-                .includes(valuefindActor.toLocaleLowerCase())
-            ) {
-              return true;
+            for (let i = 0; i < item.actors.length; i++) {
+              if (
+                item.actors[i] //по актерам
+                  .toLocaleLowerCase()
+                  .includes(valuefindActor.toLocaleLowerCase())
+              ) {
+                return true;
+              }
             }
           })
       );
@@ -159,10 +96,10 @@ export function CatalogPage(props: any) {
   const [score, setScore] = useState(1);
 
   const changeRating = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.name == "rating") {
+    if (event.target.name === "rating") {
       setRating(Number(event.target.value));
       onFilter();
-    } else if (event.target.name == "score") {
+    } else if (event.target.name === "score") {
       setScore(Number(event.target.value));
       onFilter();
     }
