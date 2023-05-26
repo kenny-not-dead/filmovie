@@ -7,7 +7,7 @@ import mim from "./../../../static/svgs/mim.png";
 
 interface FilterSelectType {
   name: string;
-  value?: string;
+  active: Array<string>;
 }
 
 export function FilterSelect(props: FilterSelectType) {
@@ -18,6 +18,7 @@ export function FilterSelect(props: FilterSelectType) {
   };
 
   let data = [];
+
   const genres = [
     {
       value: "drama",
@@ -28,60 +29,16 @@ export function FilterSelect(props: FilterSelectType) {
       text: "Боевики",
     },
     {
-      value: "boeviki",
-      text: "Боевики",
+      value: "comedy",
+      text: "Комедия",
     },
     {
-      value: "boeviki",
-      text: "Боевики",
+      value: "bio",
+      text: "Биография",
     },
     {
-      value: "drama",
-      text: "Драма",
-    },
-    {
-      value: "boeviki",
-      text: "Боевики",
-    },
-    {
-      value: "boeviki",
-      text: "Боевики",
-    },
-    {
-      value: "boeviki",
-      text: "Боевики",
-    },
-    {
-      value: "drama",
-      text: "Драма",
-    },
-    {
-      value: "boeviki",
-      text: "Боевики",
-    },
-    {
-      value: "boeviki",
-      text: "Боевики",
-    },
-    {
-      value: "boeviki",
-      text: "Боевики",
-    },
-    {
-      value: "drama",
-      text: "Драма",
-    },
-    {
-      value: "boeviki",
-      text: "Боевики",
-    },
-    {
-      value: "boeviki",
-      text: "Боевики",
-    },
-    {
-      value: "boeviki",
-      text: "Боевики",
+      value: "scream",
+      text: "Ужасы",
     },
   ];
 
@@ -95,76 +52,16 @@ export function FilterSelect(props: FilterSelectType) {
       text: "Англия",
     },
     {
-      value: "EN",
-      text: "Англия",
+      value: "FR",
+      text: "Франция",
     },
     {
-      value: "EN",
-      text: "Англия",
+      value: "CH",
+      text: "Китай",
     },
     {
-      value: "EN",
-      text: "Англия",
-    },
-    {
-      value: "RU",
-      text: "Россия",
-    },
-    {
-      value: "EN",
-      text: "Англия",
-    },
-    {
-      value: "EN",
-      text: "Англия",
-    },
-    {
-      value: "EN",
-      text: "Англия",
-    },
-    {
-      value: "EN",
-      text: "Англия",
-    },
-    {
-      value: "RU",
-      text: "Россия",
-    },
-    {
-      value: "EN",
-      text: "Англия",
-    },
-    {
-      value: "EN",
-      text: "Англия",
-    },
-    {
-      value: "EN",
-      text: "Англия",
-    },
-    {
-      value: "EN",
-      text: "Англия",
-    },
-    {
-      value: "RU",
-      text: "Россия",
-    },
-    {
-      value: "EN",
-      text: "Англия",
-    },
-    {
-      value: "EN",
-      text: "Англия",
-    },
-    {
-      value: "EN",
-      text: "Англия",
-    },
-    {
-      value: "EN",
-      text: "Англия",
+      value: "USA",
+      text: "США",
     },
   ];
 
@@ -192,6 +89,7 @@ export function FilterSelect(props: FilterSelectType) {
               .filter((item, idx) => idx < 7)
               .map((i) => (
                 <Subfilter
+                  active={props.active}
                   value={i.value}
                   text={i.text}
                   logo={mim}
@@ -204,6 +102,7 @@ export function FilterSelect(props: FilterSelectType) {
           <div className={classes.secondfilter}>
             {data.map((i) => (
               <Subfilter
+                active={props.active}
                 value={i.value}
                 text={i.text}
                 className="textlist"

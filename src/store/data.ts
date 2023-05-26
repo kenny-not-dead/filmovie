@@ -21,17 +21,17 @@ export const catalogData = [
     genres: [
       {
         id: 1,
-        label: 'драма',
+        label: 'Драма',
         value: 'drama'
       },
       {
         id: 2,
-        label: 'комедия',
+        label: 'Комедия',
         value: 'comedy'
       },
       {
         id: 3,
-        label: 'биография',
+        label: 'Биография',
         value: 'bio'
       }
     ],

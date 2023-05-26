@@ -9,9 +9,11 @@ interface SubfilterType {
   className?: string;
   activeitem?: Array<string>;
   setActiveitem?: any;
+  active?: any;
 }
 
 export function Subfilter({
+  active,
   value,
   logo,
   text,
@@ -19,12 +21,13 @@ export function Subfilter({
   activeitem = [],
   setActiveitem,
 }: SubfilterType) {
-  const [active, setActive] = useState(false);
+  const [actives, setActives] = useState(false);
 
   const activeFilter = (el: any) => {
-    setActive((prevActive) => !prevActive);
+    setActives((prevActive) => !prevActive);
     if (!activeitem.includes(el.target.textContent)) {
-      activeitem.push(el.target.textContent);
+      activeitem.push(el.target.textContent),
+        active.push(el.target.textContent);
     } else {
       setActiveitem(
         activeitem.filter((item) => item !== el.target.textContent)
@@ -47,7 +50,7 @@ export function Subfilter({
           >
             <p>{text}</p>
             {className === "textlist" ? (
-              active ? (
+              actives ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"

@@ -52,8 +52,25 @@ export function CatalogPage(props: any) {
     }
   };
 
+  const [activeGenres, setActiveGenres] = useState([]);
+  const [activeCountries, setActiveCountries] = useState([]);
+
   const onFilter = () => {
     let newValue = props.newCatalogData
+      .filter((i: any) => {
+        for (let y = 0; y < i.genres.length; y++) {
+          if (i.genres[y].label.includes(activeGenres)) {
+            return true;
+          }
+        }
+      })
+      .filter((i: any) => {
+        for (let y = 0; y < i.countries.length; y++) {
+          if (i.countries[y].label.includes(activeCountries)) {
+            return true;
+          }
+        }
+      })
       .filter((i: any) => +i.filmGrade >= rating)
       .filter((i: any) => +i.filmTotalGrade >= score);
 
@@ -118,6 +135,8 @@ export function CatalogPage(props: any) {
   const [searchactive, setSearchactive] = useState(false);
   const [searchactive2, setSearchactive2] = useState(false);
 
+  // поиск по жанрам
+
   return (
     <>
       <div className={mainclasses.sortwrapper}>
@@ -145,8 +164,8 @@ export function CatalogPage(props: any) {
       </div>
       <div className={mainclasses.mainfilterwrapper}>
         <div className={mainclasses.filterwrapper}>
-          <FilterSelect name="Жанры" value="Ужасы" />
-          <FilterSelect name=" Страны" value="Россия" />
+          <FilterSelect name="Жанры" active={activeGenres} />
+          <FilterSelect name=" Страны" active={activeCountries} />
           <RangeFilter
             label="Рейтинг"
             value={rating}

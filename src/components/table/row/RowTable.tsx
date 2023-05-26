@@ -1,10 +1,10 @@
-import classes from './RowTable.module.scss';
-import save from '../../../static/svgs/save.svg';
-import del from '../../../static/svgs/delete.svg';
-import { useEffect, useState } from 'react';
-import Select from 'react-select';
-import { useAppDispatch } from '../../../hooks/redux-hooks';
-import { removeFilm, updateFilm } from '../../../store/slices/filmSlice';
+import classes from "./RowTable.module.scss";
+import save from "../../../static/svgs/save.svg";
+import del from "../../../static/svgs/delete.svg";
+import { useEffect, useState } from "react";
+import Select from "react-select";
+import { useAppDispatch } from "../../../hooks/redux-hooks";
+import { removeFilm, updateFilm } from "../../../store/slices/filmSlice";
 
 interface RowTableProps {
   film: Film;
@@ -15,13 +15,13 @@ export function RowTable({ film }: RowTableProps) {
     id: film.id,
     name: film.filmLang[0].filmName,
     years: film.filmDate,
-    actors: film.actors.map((i: any) => i).join(', '),
+    actors: film.actors.map((i: any) => i).join(", "),
     genres: film.genres.map((i: any) => {
       return { id: i.id, label: i.label, value: i.value };
     }),
     countries: film.countries.map((i: any) => {
       return { id: i.id, label: i.label, value: i.value };
-    })
+    }),
   };
   const [formData, setFormData] = useState(formDataObj);
   const handleInputChange = (e: any) => {
@@ -35,21 +35,21 @@ export function RowTable({ film }: RowTableProps) {
 
   useEffect(() => {
     setFormData(formDataObj);
-  }, [film])
+  }, [film]);
 
   const optionList = [
-    { id: 1, value: 'drama', label: 'Драма' },
-    { id: 4, value: 'boeviki', label: 'Боевики' },
-    { id: 2, value: 'comedy', label: 'комедия' },
-    { id: 3, value: 'bio', label: 'биография' }
+    { id: 1, value: "drama", label: "Драма" },
+    { id: 4, value: "boeviki", label: "Боевики" },
+    { id: 2, value: "comedy", label: "Комедия" },
+    { id: 3, value: "bio", label: "Биография" },
   ];
 
   const optionListCountry = [
-    { id: 1, value: 'RU', label: 'Россия' },
-    { id: 2, value: 'EN', label: 'Англия' },
-    { id: 3, value: 'FR', label: 'Франция' },
-    { id: 4, value: 'CH', label: 'Китай' },
-    { id: 5, value: 'USA', label: 'США' }
+    { id: 1, value: "RU", label: "Россия" },
+    { id: 2, value: "EN", label: "Англия" },
+    { id: 3, value: "FR", label: "Франция" },
+    { id: 4, value: "CH", label: "Китай" },
+    { id: 5, value: "USA", label: "США" },
   ];
 
   function handleSelect(data: any) {
@@ -66,35 +66,35 @@ export function RowTable({ film }: RowTableProps) {
 
   return (
     <div className={classes.container}>
-      <form name='catalog'>
+      <form name="catalog">
         <div className={classes.row}>
           <input
             className={classes.id}
-            name='id'
+            name="id"
             value={formData.id}
-            type='text'
+            type="text"
             onChange={handleInputChange}
           />
 
           <input
             className={classes.name}
-            name='name'
+            name="name"
             value={formData.name}
-            type='text'
+            type="text"
             onChange={handleInputChange}
           />
 
           <input
             className={classes.year}
-            name='years'
+            name="years"
             value={formData.years}
-            type='text'
+            type="text"
             onChange={handleInputChange}
           />
           <Select
             className={classes.genre}
             options={optionList}
-            placeholder='Жанры'
+            placeholder="Жанры"
             value={selectedOptions}
             onChange={handleSelect}
             isSearchable={true}
@@ -103,7 +103,7 @@ export function RowTable({ film }: RowTableProps) {
           <Select
             className={classes.country}
             options={optionListCountry}
-            placeholder='Страна'
+            placeholder="Страна"
             value={selectedOptionsCountries}
             onChange={handleSelectCountries}
             isSearchable={true}
@@ -111,32 +111,32 @@ export function RowTable({ film }: RowTableProps) {
 
           <input
             className={classes.actors}
-            name='actors'
+            name="actors"
             value={formData.actors}
             onChange={() => {}}
-            type='text'
+            type="text"
           />
         </div>
 
         <div className={classes.buttons}>
           <img
             src={save}
-            alt='save'
+            alt="save"
             onClick={() => {
               dispatch(
                 updateFilm({
-                  film: formData
+                  film: formData,
                 })
               );
             }}
           />
           <img
             src={del}
-            alt='delete'
+            alt="delete"
             onClick={() => {
               dispatch(
                 removeFilm({
-                  film: formData
+                  film: formData,
                 })
               );
             }}
