@@ -1,15 +1,16 @@
 .table {
+	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	gap: 10px;
+	padding: 0px 10px 0px 10px;
 
 	.content {
-		border-radius: 10px;
 		border: 1px solid gray;
 
 		> div:nth-child(2n) {
-			background-color: gray;
+			background-color: rgb(61, 61, 61);
 		}
 
 	}
