@@ -10,10 +10,14 @@ interface SubfilterType {
   activeitem?: Array<string>;
   setActiveitem?: any;
   active?: any;
+  onFilter?: any;
+  setActive?: any;
 }
 
 export function Subfilter({
+  onFilter,
   active,
+  setActive,
   value,
   logo,
   text,
@@ -24,15 +28,17 @@ export function Subfilter({
   const [actives, setActives] = useState(false);
 
   const activeFilter = (el: any) => {
-    setActives((prevActive) => !prevActive);
+    setActives((prevActives) => !prevActives);
     if (!activeitem.includes(el.target.textContent)) {
-      activeitem.push(el.target.textContent),
-        active.push(el.target.textContent);
+      activeitem.push(el.target.textContent);
+      active.push(el.target.textContent);
     } else {
       setActiveitem(
         activeitem.filter((item) => item !== el.target.textContent)
       );
+      setActive(active.filter((item: any) => item !== el.target.textContent));
     }
+    onFilter();
   };
 
   useEffect(() => {}, [activeitem]);

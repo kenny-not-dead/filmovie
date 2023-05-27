@@ -107,7 +107,7 @@ export function CatalogPage(props: any) {
 
   useEffect(() => {
     onFilter();
-  }, [valuefind, valuefindActor]);
+  }, [valuefind, valuefindActor, activeGenres, activeCountries]);
 
   const [rating, setRating] = useState(7.3);
   const [score, setScore] = useState(1);
@@ -129,6 +129,8 @@ export function CatalogPage(props: any) {
     setValuefindActor("");
     setSearchactive(false);
     setSearchactive2(false);
+    setActiveGenres([]);
+    setActiveCountries([]);
     setCatalog(props.newCatalogData);
   };
 
@@ -164,8 +166,18 @@ export function CatalogPage(props: any) {
       </div>
       <div className={mainclasses.mainfilterwrapper}>
         <div className={mainclasses.filterwrapper}>
-          <FilterSelect name="Жанры" active={activeGenres} />
-          <FilterSelect name=" Страны" active={activeCountries} />
+          <FilterSelect
+            name="Жанры"
+            active={activeGenres}
+            setActive={setActiveGenres}
+            onFilter={onFilter}
+          />
+          <FilterSelect
+            name=" Страны"
+            active={activeCountries}
+            setActive={setActiveCountries}
+            onFilter={onFilter}
+          />
           <RangeFilter
             label="Рейтинг"
             value={rating}

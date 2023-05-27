@@ -135,12 +135,16 @@ export function CatalogPageMain() {
       text: "Боевики",
     },
     {
-      value: "boeviki",
-      text: "Боевики",
+      value: "comedy",
+      text: "Комедия",
     },
     {
-      value: "boeviki",
-      text: "Боевики",
+      value: "bio",
+      text: "Биография",
+    },
+    {
+      value: "scream",
+      text: "Ужасы",
     },
   ];
 
@@ -154,16 +158,16 @@ export function CatalogPageMain() {
       text: "Англия",
     },
     {
-      value: "EN",
-      text: "Англия",
+      value: "FR",
+      text: "Франция",
     },
     {
-      value: "EN",
-      text: "Англия",
+      value: "CH",
+      text: "Китай",
     },
     {
-      value: "EN",
-      text: "Англия",
+      value: "USA",
+      text: "США",
     },
   ];
 

@@ -7,7 +7,9 @@ import mim from "./../../../static/svgs/mim.png";
 
 interface FilterSelectType {
   name: string;
-  active: Array<string>;
+  active?: Array<string>;
+  onFilter: any;
+  setActive: any;
 }
 
 export function FilterSelect(props: FilterSelectType) {
@@ -89,7 +91,9 @@ export function FilterSelect(props: FilterSelectType) {
               .filter((item, idx) => idx < 7)
               .map((i) => (
                 <Subfilter
+                  onFilter={props.onFilter}
                   active={props.active}
+                  setActive={props.setActive}
                   value={i.value}
                   text={i.text}
                   logo={mim}
@@ -102,7 +106,9 @@ export function FilterSelect(props: FilterSelectType) {
           <div className={classes.secondfilter}>
             {data.map((i) => (
               <Subfilter
+                onFilter={props.onFilter}
                 active={props.active}
+                setActive={props.setActive}
                 value={i.value}
                 text={i.text}
                 className="textlist"
