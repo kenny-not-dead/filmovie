@@ -28,17 +28,19 @@ export function Subfilter({
   const [actives, setActives] = useState(false);
 
   const activeFilter = (el: any) => {
-    setActives((prevActives) => !prevActives);
-    if (!activeitem.includes(el.target.textContent)) {
-      activeitem.push(el.target.textContent);
-      active.push(el.target.textContent);
-    } else {
-      setActiveitem(
-        activeitem.filter((item) => item !== el.target.textContent)
-      );
-      setActive(active.filter((item: any) => item !== el.target.textContent));
+    if (active) {
+      setActives((prevActives) => !prevActives);
+      if (!activeitem.includes(el.target.textContent)) {
+        activeitem.push(el.target.textContent);
+        active.push(el.target.textContent);
+      } else {
+        setActiveitem(
+          activeitem.filter((item) => item !== el.target.textContent)
+        );
+        setActive(active.filter((item: any) => item !== el.target.textContent));
+      }
+      onFilter();
     }
-    onFilter();
   };
 
   useEffect(() => {}, [activeitem]);
