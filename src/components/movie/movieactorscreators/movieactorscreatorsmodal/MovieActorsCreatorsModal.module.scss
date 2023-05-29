@@ -19,13 +19,17 @@
 
 .modal {
   position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
+  margin-top: -35px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
   background-color: black;
   opacity: 0.8;
   z-index: 5;
+}
+
+.modalContainer {
+  display: flex;
 }
 
 .overlay {

@@ -7,4 +7,32 @@
   display: flex;
   justify-content: space-between;
   margin: 12px auto;
+  gap: 22px;
+  @media (max-width: 480px) and (min-width: 300px) {
+    max-width: 480px;
+  }
+
+  @media (max-width: 724px) and (min-width: 600px) {
+    max-width: 724px;
+  }
+
+  @media (max-width: 837px) and (min-width: 725px) {
+    max-width: 837px;
+  }
+
+  @media (max-width: 947px) and (min-width: 838px) {
+    max-width: 947px;
+  }
+
+  @media (max-width: 1059px) and (min-width: 948px) {
+    max-width: 1059px;
+  }
+
+  @media (max-width: 1160px) and (min-width: 1060px) {
+    max-width: 1160px;
+  }
+
+  @media (max-width: 1280px) and (min-width: 1160px) {
+    max-width: 1280px;
+  }
 }
